@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Όμιλοι, Σύνολα & Ενισχυτική Διδασκαλία 2026-2027 | Δημόσιο Ωνάσειο Σχολείο Ηρακλείου</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .scrollbar-thin::-webkit-scrollbar { height: 6px; width: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-track { background: #f1f5f9; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-brand-100 selection:text-brand-900">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-slate-950 via-brand-950 to-slate-900 text-white shadow-xl sticky top-0 z-40 border-b border-white/10 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      
+      <!-- Brand & School Logo -->
+      <div class="flex items-center gap-3.5">
+        <div class="bg-white p-2 rounded-xl shadow-md border border-slate-200 shrink-0 flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14">
+          <img src="images/logo.png" alt="Λογότυπο Σχολείου" class="max-h-full max-w-full object-contain" 
+               onerror="this.onerror=null; this.parentElement.innerHTML='<svg class=\'w-8 h-8 text-slate-800\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M12 2v20\'/><path d=\'M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\'/></svg>';">
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/10 text-brand-200 backdrop-blur-sm border border-white/10 mb-0.5">
+            <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i>
+            Σχολικό Έτος 2026 - 2027
+          </div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white leading-tight">
+            ΔΗΜΟΣΙΟ ΩΝΑΣΕΙΟ ΣΧΟΛΕΙΟ
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-300 font-medium">Ημερήσιο Γυμνάσιο Ηρακλείου • Όμιλοι & Ενισχυτική Διδασκαλία</p>
+        </div>
+      </div>
+
+      <!-- Tab View Switcher -->
+      <div class="flex items-center bg-black/40 p-1.5 rounded-xl self-start md:self-auto border border-white/10 backdrop-blur-sm shadow-inner">
+        <button id="view-cards-btn" onclick="switchView('cards')" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-white text-slate-900 shadow">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          <span>Όμιλοι & Κάρτες</span>
+        </button>
+        <button id="view-schedule-btn" onclick="switchView('schedule')" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Πρόγραμμα ανά Τάξη</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
+
+    <!-- VIEW 1: CARDS -->
+    <section id="cards-view" class="space-y-6">
+
+      <!-- Filter Bar -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          
+          <!-- Search Field -->
+          <div class="relative lg:col-span-2">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="search-input" placeholder="Αναζήτηση τίτλου, καθηγητή, ID ή λέξης..." 
+              class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white transition-all">
+          </div>
+
+          <!-- Type Filter -->
+          <div>
+            <select id="filter-type" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white text-slate-700 font-medium">
+              <option value="all">Όλοι οι Τύποι</option>
+              <option value="omilos">Όμιλοι & Σύνολα</option>
+              <option value="enischytiki">Ενισχυτική Διδασκαλία</option>
+            </select>
+          </div>
+
+          <!-- Grade Filter -->
+          <div>
+            <select id="filter-grade" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white text-slate-700 font-medium">
+              <option value="all">Όλες οι Τάξεις</option>
+              <option value="Α΄">Α΄ Γυμνασίου</option>
+              <option value="Β΄">Β΄ Γυμνασίου</option>
+              <option value="Γ΄">Γ΄ Γυμνασίου</option>
+              <option value="Λυκ">Και Λύκειο</option>
+            </select>
+          </div>
+
+          <!-- Day Filter -->
+          <div>
+            <select id="filter-day" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white text-slate-700 font-medium">
+              <option value="all">Όλες οι Ημέρες</option>
+              <option value="Δευτέρα">Δευτέρα</option>
+              <option value="Τρίτη">Τρίτη</option>
+              <option value="Τετάρτη">Τετάρτη</option>
+              <option value="Πέμπτη">Πέμπτη</option>
+              <option value="Παρασκευή">Παρασκευή</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Metric & Reset Bar -->
+        <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2">
+          <div class="flex items-center gap-1.5">
+            <span>Εμφανίζονται:</span>
+            <span id="results-count" class="font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded-md">0</span>
+            <span>δράσεις</span>
+          </div>
+          <button onclick="resetFilters()" class="text-brand-700 hover:text-brand-900 font-semibold flex items-center gap-1 hover:underline transition-all">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            Επαναφορά φίλτρων
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div id="cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      
+      <!-- Empty Fallback -->
+      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200">
+        <i data-lucide="search-x" class="w-12 h-12 mx-auto text-slate-300 mb-3"></i>
+        <h3 class="text-base font-bold text-slate-700">Δεν βρέθηκαν αποτελέσματα</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-sm mx-auto">Δοκιμάστε να καθαρίσετε τα φίλτρα ή να αναζητήσετε με άλλο όνομα εκπαιδευτικού ή θέμα.</p>
+      </div>
+
+    </section>
+
+    <!-- VIEW 2: SCHEDULE PER GRADE (No horizontal scroll, fully compact) -->
+    <section id="schedule-view" class="hidden space-y-5">
+      
+      <!-- Grade Tab Buttons -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="calendar-clock" class="w-5 h-5 text-brand-700"></i>
+              Εβδομαδιαίο Πρόγραμμα ανά Τάξη
+            </h2>
+            <p class="text-xs text-slate-500">Επιλέξτε την τάξη του παιδιού σας για να δείτε ακριβώς τις διαθέσιμες δράσεις κάθε μέρα.</p>
+          </div>
+
+          <!-- Grade Pills -->
+          <div class="inline-flex flex-wrap p-1 bg-slate-100 rounded-xl gap-1 border border-slate-200">
+            <button onclick="setScheduleGrade('all')" id="btn-grade-all" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-brand-800 text-white shadow-sm">
+              Όλες οι Τάξεις
+            </button>
+            <button onclick="setScheduleGrade('Α΄')" id="btn-grade-a" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">
+              Α΄ Γυμνασίου
+            </button>
+            <button onclick="setScheduleGrade('Β΄')" id="btn-grade-b" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">
+              Β΄ Γυμνασίου
+            </button>
+            <button onclick="setScheduleGrade('Γ΄')" id="btn-grade-c" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">
+              Γ΄ Γυμνασίου
+            </button>
+            <button onclick="setScheduleGrade('Λυκ')" id="btn-grade-lyk" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all">
+              Λύκειο
+            </button>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="flex flex-wrap items-center gap-4 text-xs pt-3 border-t border-slate-100">
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded bg-sky-500"></span> 
+            <span class="font-medium text-slate-700">Όμιλοι & Σύνολα</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded bg-amber-500"></span> 
+            <span class="font-medium text-slate-700">Ενισχυτική Διδασκαλία</span>
+          </span>
+          <span class="text-slate-400 text-[11px] ml-auto italic hidden sm:inline">* Κάντε κλικ σε οποιαδήποτε κάρτα για να ανοίξει η αφίσα και η περιγραφή</span>
+        </div>
+      </div>
+
+      <!-- Schedule 5-Columns Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 items-start">
+        
+        <!-- Δευτέρα -->
+        <div class="bg-white rounded-2xl p-3 border border-slate-200/90 shadow-sm flex flex-col min-h-[350px]">
+          <div class="font-bold text-xs uppercase tracking-wider text-center py-2 mb-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl shadow-sm flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-200"></i>
+            Δευτέρα
+          </div>
+          <div class="space-y-2 flex-1" id="schedule-col-mon"></div>
+        </div>
+
+        <!-- Τρίτη -->
+        <div class="bg-white rounded-2xl p-3 border border-slate-200/90 shadow-sm flex flex-col min-h-[350px]">
+          <div class="font-bold text-xs uppercase tracking-wider text-center py-2 mb-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl shadow-sm flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-200"></i>
+            Τρίτη
+          </div>
+          <div class="space-y-2 flex-1" id="schedule-col-tue"></div>
+        </div>
+
+        <!-- Τετάρτη -->
+        <div class="bg-white rounded-2xl p-3 border border-slate-200/90 shadow-sm flex flex-col min-h-[350px]">
+          <div class="font-bold text-xs uppercase tracking-wider text-center py-2 mb-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl shadow-sm flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-200"></i>
+            Τετάρτη
+          </div>
+          <div class="space-y-2 flex-1" id="schedule-col-wed"></div>
+        </div>
+
+        <!-- Πέμπτη -->
+        <div class="bg-white rounded-2xl p-3 border border-slate-200/90 shadow-sm flex flex-col min-h-[350px]">
+          <div class="font-bold text-xs uppercase tracking-wider text-center py-2 mb-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl shadow-sm flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-200"></i>
+            Πέμπτη
+          </div>
+          <div class="space-y-2 flex-1" id="schedule-col-thu"></div>
+        </div>
+
+        <!-- Παρασκευή -->
+        <div class="bg-white rounded-2xl p-3 border border-slate-200/90 shadow-sm flex flex-col min-h-[350px]">
+          <div class="font-bold text-xs uppercase tracking-wider text-center py-2 mb-2.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl shadow-sm flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-200"></i>
+            Παρασκευή
+          </div>
+          <div class="space-y-2 flex-1" id="schedule-col-fri"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Detailed Modal -->
+  <div id="details-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-5">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-5 border-b border-slate-100 flex items-start justify-between bg-slate-50/90">
+        <div class="space-y-1.5 pr-3">
+          <div class="flex flex-wrap items-center gap-2" id="modal-badges"></div>
+          <h3 id="modal-title" class="text-base sm:text-xl font-extrabold text-slate-900 leading-snug"></h3>
+        </div>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-700 bg-white p-2 rounded-xl border border-slate-200 shadow-sm transition-colors shrink-0">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-4 sm:p-6 overflow-y-auto scrollbar-thin space-y-5">
+        
+        <!-- Full Poster View -->
+        <div id="modal-image-container" class="rounded-xl overflow-hidden border border-slate-200 bg-slate-900/5 p-1 hidden flex items-center justify-center">
+          <img id="modal-image" src="" alt="Αφίσα Ομίλου" class="max-h-80 w-auto object-contain rounded-lg shadow-sm">
+        </div>
+
+        <!-- Metadata Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200/80">
+          <div class="flex items-start gap-2.5">
+            <div class="p-1.5 bg-brand-100 text-brand-800 rounded-lg shrink-0 mt-0.5">
+              <i data-lucide="user" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[11px]">Εκπαιδευτικός:</span>
+              <span id="modal-teacher" class="font-bold text-slate-800"></span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-2.5">
+            <div class="p-1.5 bg-brand-100 text-brand-800 rounded-lg shrink-0 mt-0.5">
+              <i data-lucide="award" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[11px]">Ειδικότητα:</span>
+              <span id="modal-specialty" class="font-bold text-slate-800"></span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-2.5">
+            <div class="p-1.5 bg-brand-100 text-brand-800 rounded-lg shrink-0 mt-0.5">
+              <i data-lucide="users" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[11px]">Απευθύνεται σε:</span>
+              <span id="modal-grades" class="font-bold text-slate-800"></span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-2.5">
+            <div class="p-1.5 bg-brand-100 text-brand-800 rounded-lg shrink-0 mt-0.5">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[11px]">Χώρος / Αίθουσα:</span>
+              <span id="modal-room" class="font-bold text-slate-800"></span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-2.5">
+            <div class="p-1.5 bg-brand-100 text-brand-800 rounded-lg shrink-0 mt-0.5">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[11px]">Ημέρα:</span>
+              <span id="modal-day" class="font-bold text-slate-800"></span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-2.5">
+            <div class="p-1.5 bg-brand-100 text-brand-800 rounded-lg shrink-0 mt-0.5">
+              <i data-lucide="hash" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[11px]">ID Αίτησης:</span>
+              <span id="modal-code" class="font-mono font-bold text-brand-800"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extended Description -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Περιγραφή & Στόχοι</h4>
+          <div id="modal-description" class="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white rounded-xl p-4 border border-slate-100 shadow-inner whitespace-pre-line"></div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-3.5 sm:p-4 border-t border-slate-100 bg-slate-50 flex justify-end">
+        <button onclick="closeModal()" class="px-5 py-2 text-xs sm:text-sm font-bold rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow">
+          Κλείσιμο
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-1">
+      <p class="font-semibold text-slate-700">Δημόσιο Ωνάσειο Σχολείο - Ημερήσιο Γυμνάσιο Ηρακλείου</p>
+      <p>Επίσημη Πλατφόρμα Ενημέρωσης Ομίλων, Συνόλων & Ενισχυτικής Διδασκαλίας 2026-2027</p>
+    </div>
+  </footer>
+
+  <!-- DATA & APP LOGIC -->
+  <script>
+    // Πλήρης βάση δεδομένων με όλα τα 45 τμήματα & αντιστοίχιση αρχείων εικόνων images/...
+    const clubsData = [
+      // 1. Ρητορική
+      {
+        id: "omilos-1",
+        title: '"Η δύναμή σου, το επιχείρημά σου!"',
+        category: "Ανθρωπιστικές – Επιχειρηματολογία-Ρητορική",
+        type: "omilos",
+        teacher: "Ελένη Λουμπάκη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Τετάρτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/rhtoriki.jpg",
+        code: "—",
+        description: "Ο όμιλος ρητορικής «Η δύναμή σου, το επιχείρημά σου» δίνει στους μαθητές και στις μαθήτριες την ευκαιρία να ανακαλύψουν τη δύναμη του προφορικού λόγου και να εκφράζουν με σαφήνεια τις σκέψεις, τις απόψεις και τα συναισθήματά τους. Μέσα από ευχάριστες δραστηριότητες, συζητήσεις, παιχνίδια λόγου και μικρές παρουσιάσεις, τα παιδιά θα μάθουν να ακούν προσεκτικά τα λόγια των άλλων, να οργανώνουν τις ιδέες τους και να υποστηρίζουν τη γνώμη τους με κατάλληλους λόγους και παραδείγματα.\n\nΕπιστέγασμα όλων των προσπαθειών τους θα είναι η συμμετοχή σε διασχολικό διαγωνισμό Ρητορικής, που πραγματοποιείται στο Ρέθυμνο σε συνεργασία με τη Φιλοσοφική Σχολή του Πανεπιστημίου Κρήτης."
+      },
+      // 2. Smart School Οικολογικό
+      {
+        id: "omilos-2",
+        title: "Smart School: Το Έξυπνο Οικολογικό Σχολείο μας",
+        category: "STEAM – Ρομποτική",
+        type: "omilos",
+        teacher: "Ειρήνη Ηλέκτρα Κατζαγιαννάκη",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Α΄, Β΄ Γυμνασίου",
+        day: "Τρίτη",
+        room: "Εργ. Πληροφορικής",
+        image: "images/smart-eco.jpg",
+        code: "—",
+        description: "Στον Όμιλο Ρομποτικής οι μαθητές και οι μαθήτριες θα έχουν την ευκαιρία να δημιουργήσουν, να πειραματιστούν και να λύσουν πραγματικά προβλήματα, αξιοποιώντας αισθητήρες, κινητήρες και αυτοματισμούς. Μέσα από ομαδικά projects θα σχεδιάσουν τις δικές τους έξυπνες εφαρμογές για ένα «Έξυπνο Οικολογικό Σχολείο», όπως έξυπνος φωτισμός, σύστημα εξοικονόμησης ενέργειας, σύστημα ανακύκλωσης και πολλές ακόμη ιδέες που θα προκύψουν από τη φαντασία τους!"
+      },
+      // 3. Ταινία Μικρού Μήκους
+      {
+        id: "omilos-3",
+        title: "ΔΗΜΙΟΥΡΓΩ ΤΗΝ ΔΙΚΗ ΜΟΥ ΤΑΙΝΙΑ ΜΙΚΡΟΥ ΜΗΚΟΥΣ",
+        category: "Καλές Τέχνες – Κινηματογράφος-Φωτογραφία",
+        type: "omilos",
+        teacher: "Θεόδωρος Χιωτίδης",
+        specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Εργ. Πληροφορικής",
+        image: "images/tainia.jpg",
+        code: "1A49F",
+        description: "Ο όμιλος δίνει στους μαθητές και τις μαθήτριες την ευκαιρία να γνωρίσουν τον κόσμο του κινηματογράφου και να δημιουργήσουν τη δική τους μικρή ταινία, από την αρχική ιδέα έως την τελική παρουσίαση. Μέσα από ομαδικές δραστηριότητες, οι μαθητές θα μάθουν πώς γεννιέται μια ιστορία, πώς οργανώνεται μια ταινία και πώς εκφράζονται ιδέες μέσα από εικόνα, ήχο και κίνηση."
+      },
+      // 4. NeuroQuest
+      {
+        id: "omilos-4",
+        title: "NeuroQuest_Εξερευνώντας τα μυστήρια του εγκεφάλου",
+        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
+        type: "omilos",
+        teacher: "Μαρία Σαββάκη",
+        specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Τετάρτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/neuroquest.jpg",
+        code: "—",
+        description: "Ο Όμιλος Νευροεπιστημών προσφέρει στους μαθητές την ευκαιρία να γνωρίσουν τον ανθρώπινο εγκέφαλο μέσα από βιωματικές δραστηριότητες, πειράματα, συνεργατική μάθηση και επίλυση προβλημάτων. Οι μαθητές διερευνούν έννοιες όπως μνήμη, προσοχή, μάθηση και νευροπλαστικότητα, ενώ σχεδιάζουν και το δικό τους εκπαιδευτικό επιτραπέζιο παιχνίδι!"
+      },
+      // 5. Μινωική Κρήτη
+      {
+        id: "omilos-5",
+        title: "Η καθημερινή ζωή στη Μινωική Κρήτη",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Κωνσταντίνος Σακελλάρης",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Τετάρτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/minoiki.jpg",
+        code: "33608",
+        description: "Αντικείμενο έρευνας είναι η καθημερινή ζωή στη Μινωική Κρήτη: η θέση και ο ρόλος της γυναίκας, η θρησκεία, η αρχιτεκτονική, το ένδυμα, η διατροφή και η άθληση. Σύνδεση με την τοπική ιστορία του Ηρακλείου, άσκηση σε μεθόδους έρευνας πεδίου και συνεντεύξεις με εξειδικευμένους επιστήμονες."
+      },
+      // 6. Adopt-a-Spot Ομάδα Α
+      {
+        id: "omilos-6",
+        title: "Adopt-a-Spot: Η Γειτονιά & η Θάλασσά μας στα Χέρια μας (Ομάδα Α)",
+        category: "STEAM – Περιβάλλον & Βιωσιμότητα",
+        type: "omilos",
+        teacher: "Αικατερίνη Παπαδάκη",
+        specialty: "ΠΕ05 - ΓΑΛΛΙΚΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/adopt-a.jpg",
+        code: "—",
+        description: "Ενεργή συμμετοχή των μαθητών στην προστασία και βελτίωση του περιβάλλοντος με έμφαση στη γειτονιά του σχολείου και στις ακτές της Κρήτης. Βιωματικές δράσεις, καθαρισμοί παραλιών, ενημέρωση για τη θαλάσσια ρύπανση, φροντίδα γειτονικού θεάτρου και πάρκου."
+      },
+      // 7. Μουσική Σύνθεση & Αυτοσχεδιασμός
+      {
+        id: "omilos-7",
+        title: "Εργαστήρι Μουσικής Σύνθεσης & Αυτοσχεδιασμού",
+        category: "Καλές Τέχνες – Μουσική",
+        type: "omilos",
+        teacher: "Ισίδωρος Παπαδάκης",
+        specialty: "ΠΕ79.01 - ΜΟΥΣΙΚΗΣ ΕΠΙΣΤΗΜΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄, Β΄, Γ΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Αίθουσα μουσικής",
+        image: "images/synthesi.jpg",
+        code: "34B58",
+        description: "Απευθύνεται σε μαθητές που έχουν ήδη στοιχειώδη επαφή και εξοικείωση με κάποιο μουσικό όργανο. Παιδαγωγικός σκοπός είναι να εξοπλίσει τους μαθητές με δεξιότητες και τεχνική γνώση ώστε να προσεγγίσουν τη μουσική τέχνη ως δημιουργοί, τόσο στη σύνθεση όσο και στον αυτοσχεδιασμό."
+      },
+      // 8. Η θέση της γυναίκας στις θρησκείες
+      {
+        id: "omilos-8",
+        title: "Η θέση της γυναίκας στις θρησκείες",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Ευαγγελία Χατζάκη",
+        specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Πέμπτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/gynaika.jpg",
+        code: "—",
+        description: "Ένα δημιουργικό ταξίδι στον κόσμο των θρησκειών, με επίκεντρο τη θέση, τον ρόλο και την παρουσία της γυναίκας σε διαφορετικές θρησκευτικές παραδόσεις και ιστορικές περιόδους. Μέσα από ιστορίες σημαντικών γυναικείων μορφών, κείμενα, εικόνες και συγκριτική προσέγγιση, τα παιδιά καλλιεργούν τον σεβασμό στη διαφορετικότητα."
+      },
+      // 9. Θέατρο και Δημοκρατία
+      {
+        id: "omilos-9",
+        title: "Θέατρο και Δημοκρατία: Σκηνές Συμμετοχής και Μεταμόρφωσης",
+        category: "Καλές Τέχνες – Θέατρο",
+        type: "omilos",
+        teacher: "Αναστασία Χουρσανίδου",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Δευτέρα & Τρίτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/theatro.jpg",
+        code: "4B422",
+        description: "Επαφή με το θέατρο και το «Θέατρο του Καταπιεσμένου» του Augusto Boal για την καλλιέργεια της δημοκρατικής συνείδησης, της ενσυναίσθησης και της ενεργού πολιτειότητας. Ανάλυση κοινωνικών ζητημάτων, βιωματική πράξη και παρουσίαση θεατρικών δράσεων στη σχολική κοινότητα."
+      },
+      // 10. SEA FOR THE FUTURE
+      {
+        id: "omilos-10",
+        title: "SEA FOR THE FUTURE – Μικροί Επιστήμονες, Μεγάλα Μυστικά της Θάλασσας!",
+        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
+        type: "omilos",
+        teacher: "Περσεφόνη Φραγκιαδάκη",
+        specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Εργ. Φυσικών Επιστημών",
+        image: "images/sea.jpg",
+        code: "—",
+        description: "Τα παιδιά της Α΄ Γυμνασίου ανακαλύπτουν τον θαλάσσιο κόσμο της Κρήτης και πώς τα πλαστικά επηρεάζουν τη θαλάσσια ζωή. Συναρπαστικά πειράματα, έρευνα στην ακτή, συλλογή και μελέτη δειγμάτων θαλασσινού νερού στο εργαστήριο, καθώς και συνεργασία με το ΕΚΦΕ Ηρακλείου."
+      },
+      // 11. All'italiana
+      {
+        id: "omilos-11",
+        title: "All'italiana: Όμιλος Ιταλικής Γλώσσας και Κουλτούρας",
+        category: "Ξένες Γλώσσες – Γλώσσα & Πολιτισμός",
+        type: "omilos",
+        teacher: "Μαρία Παπαχατζάκη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Παρασκευή",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/italiana.jpg",
+        code: "—",
+        description: "Πρώτη επαφή με την ιταλική γλώσσα (επίπεδο Α1-Α1+) και τον ιταλικό πολιτισμό. Κατανόηση απλών διαλόγων, γνωριμία με τα ήθη, τα έθιμα, τον διαλεκτικό πλούτο της Ιταλίας και τη διαχρονική σύνδεση με την Ελλάδα. Προβλέπεται προετοιμασία για μελλοντική πιστοποίηση ΚΠΓ."
+      },
+      // 12. Ας τζαμάρουμε!
+      {
+        id: "omilos-12",
+        title: "Ερμηνεία, εκτέλεση και μουσική πράξη: Ας τζαμάρουμε!",
+        category: "Καλές Τέχνες – Μουσική",
+        type: "omilos",
+        teacher: "Ισίδωρος Παπαδάκης",
+        specialty: "ΠΕ79.01 - ΜΟΥΣΙΚΗΣ ΕΠΙΣΤΗΜΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄, Β΄, Γ΄ Λυκ.",
+        day: "Τρίτη",
+        room: "Αίθουσα μουσικής",
+        image: "images/jamming.jpg",
+        code: "5F5A9",
+        description: "Απευθύνεται σε μαθητές και μαθήτριες που έχουν ήδη εξοικειωθεί με κάποιο μουσικό όργανο και επιθυμούν να βελτιώσουν τις δεξιότητές τους, παίζοντας μαζί σε μουσικό σύνολο (jamming) και καλλιεργώντας αρμονική μουσική σύμπραξη."
+      },
+      // 13. CERN
+      {
+        id: "omilos-13",
+        title: "«Ανιχνευτές του Αόρατου: Πειράματα, μυστήρια και μικρές επιστημονικές αποστολές... και το CERN μάς περιμένει!»",
+        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
+        type: "omilos",
+        teacher: "Άννα Καραΐσκου",
+        specialty: "ΠΕ04.01 - ΦΥΣΙΚΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Τετάρτη",
+        room: "Εργ. Φυσικών Επιστημών",
+        image: "images/cern.jpg",
+        code: "—",
+        description: "Πώς οι επιστήμονες μελετούν όσα δεν φαίνονται με το μάτι: η δομή της ύλης, τα κύματα, τα σήματα του σύμπαντος. Απλά πειράματα, κατασκευές, γρίφοι και επιστημονική μέθοδος. Στο πλαίσιο του ομίλου σχεδιάζεται και εκπαιδευτική επίσκεψη στο κορυφαίο ερευνητικό κέντρο CERN!"
+      },
+      // 14. Γερμανικά Γυμνασίου
+      {
+        id: "omilos-14",
+        title: '"Μια φορά κι έναν καιρό....στα Γερμανικά"',
+        category: "Ξένες Γλώσσες – Γλώσσα & Πολιτισμός",
+        type: "omilos",
+        teacher: "Μαρία Σεργίου",
+        specialty: "ΠΕ07 - ΓΕΡΜΑΝΙΚΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Τετάρτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/germanika-gymnasio.jpg",
+        code: "77042",
+        description: "Επαφή με τη γερμανική γλώσσα και τον γερμανόφωνο πολιτισμό με βιωματικό τρόπο. Μέσα από τα παραμύθια των αδελφών Grimm, θεατρικό παιχνίδι, κόμικς, ταινίες, κουίζ και Kahoot, τα παιδιά μαθαίνουν βασικό λεξιλόγιο και εκφράσεις παίζοντας και δημιουργώντας."
+      },
+      // 15. Εφαρμοσμένες Τέχνες - Γραφιστική
+      {
+        id: "omilos-15",
+        title: "«Εφαρμοσμένες Τέχνες - Γραφιστική»",
+        category: "Καλές Τέχνες – Κινηματογράφος-Φωτογραφία",
+        type: "omilos",
+        teacher: "Θεόδωρος Χιωτίδης",
+        specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Δευτέρα",
+        room: "Εργ. Πληροφορικής",
+        image: "images/grafistiki.jpg",
+        code: "7702D",
+        description: "Γνωριμία με τη δημιουργική πλευρά του οπτικού σχεδιασμού. Πειραματισμός με εικόνες, χρώμα, τυπογραφία, σχεδιασμό αφίσας, εξωφύλλων και λογοτύπων. Ανάπτυξη αισθητικής αντίληψης, δεξιοτήτων ψηφιακού σχεδιασμού και οπτικής επικοινωνίας."
+      },
+      // 16. English Certification Lab
+      {
+        id: "omilos-16",
+        title: "English Certification Lab - Εργαστήριο Προετοιμασίας για το ΚΠΓ",
+        category: "Ξένες Γλώσσες – Πιστοποίηση Γλωσσομάθειας",
+        type: "omilos",
+        teacher: "Ουρανία Κιρκικάκη",
+        specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄, Β΄, Γ΄ Λυκ.",
+        day: "Τετάρτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/english.jpg",
+        code: "—",
+        description: "Συστηματική, ποιοτική και δωρεάν προετοιμασία εντός του σχολείου για τις εξετάσεις του Κρατικού Πιστοποιητικού Γλωσσομάθειας (ΚΠΓ). Ενίσχυση δεξιοτήτων κατανόησης και παραγωγής γραπτού και προφορικού λόγου, στρατηγικές εξετάσεων και αυτόνομη μελέτη."
+      },
+      // 17. BookLab
+      {
+        id: "omilos-17",
+        title: "BookLab: Από την σελίδα στον ήχο και την οθόνη (Εργαστήρι φιλαναγνωσίας)",
+        category: "Ανθρωπιστικές – Όμιλος Γραμμάτων",
+        type: "omilos",
+        teacher: "Μαρία Παπαχατζάκη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Πέμπτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/booklab.jpg",
+        code: "—",
+        description: "Ψυχαγωγική ανάγνωση και εξερεύνηση των νέων μορφών του λογοτεχνικού βιβλίου (ηλεκτρονικό e-book, audiobook, graphic novel / κόμικ). Πώς αλλάζει η εμπειρία μιας ιστορίας όταν αλλάζει το μέσο ανάγνωσης και πρόσληψης."
+      },
+      // 18. Μαθηματική Λογοτεχνία
+      {
+        id: "omilos-18",
+        title: "Όταν τα Μαθηματικά λένε Ιστορίες - Μαθηματική Λογοτεχνία",
+        category: "STEAM – Μαθηματικές Επιστήμες",
+        type: "omilos",
+        teacher: "Ελένη Μηλάκη",
+        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Δευτέρα",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/math-stories.jpg",
+        code: "917C4",
+        description: "Λέσχη ανάγνωσης με αφετηρία το βιβλίο «Καταραμένα Μαθηματικά» του Carlo Frabetti. Τα Μαθηματικά μέσα από μια δημιουργική και ευχάριστη οπτική: ιστορία μαθηματικών ιδεών, γρίφοι, εφαρμογές στην τέχνη, την αστρονομία και την καθημερινή ζωή."
+      },
+      // 19. Δημιουργική Γραφή
+      {
+        id: "omilos-19",
+        title: "Δημιουργική γραφή",
+        category: "Ανθρωπιστικές – Δημιουργική Γραφή",
+        type: "omilos",
+        teacher: "Ουρανία Σταμουλάκη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Δευτέρα",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/grafi.jpg",
+        code: "A6B2C",
+        description: "Δημιουργικό ταξίδι έκφρασης και φαντασίας. Από παθητικοί αναγνώστες, τα παιδιά γίνονται ενεργοί δημιουργοί ιστοριών, ποιημάτων και θεατρικών σκηνών. Εξάσκηση στο χτίσιμο χαρακτήρων, τη διαμόρφωση πλοκής και τον πλούτο της γλώσσας."
+      },
+      // 20. Fact Checkers
+      {
+        id: "omilos-20",
+        title: "Fact Checkers: Ανάλυση δημοσιογραφικού λόγου & σχολική εφημερίδα",
+        category: "Κοινωνικές – Δημοσιογραφία",
+        type: "omilos",
+        teacher: "Στυλιανή Παπαδάκη",
+        specialty: "ΠΕ78 - ΚΟΙΝΩΝΙΚΩΝ ΕΠΙΣΤΗΜΩΝ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Πέμπτη",
+        room: "Αίθουσα τεχνολογίας",
+        image: "images/factcheckers.jpg",
+        code: "—",
+        description: "Ανάπτυξη κριτικής σκέψης απέναντι στην παραπληροφόρηση και τις ψευδείς ειδήσεις (fake news). Διάκριση είδησης και γνώμης, τεχνικές ρεπορτάζ και συνέντευξης, καθώς και δημιουργία της έντυπης και ψηφιακής σχολικής εφημερίδας."
+      },
+      // 21. Ελλάδα χωρίς Σύνορα
+      {
+        id: "omilos-21",
+        title: "Ελλάδα χωρίς Σύνορα: Αναζητώντας, ερευνώντας και αναδεικνύοντας τον Ελληνισμό στην Ευρώπη",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Αντιγόνη Ζήση",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/ellada.jpg",
+        code: "B169F",
+        description: "Διερεύνηση της ιστορικής και σύγχρονης παρουσίας του ελληνισμού στην Ευρώπη. Μαθητικές ερευνητικές ομάδες, αξιοποίηση πρωτογενών πηγών, συνεντεύξεις και δυνατότητα εκπαιδευτικής μετακίνησης σε ευρωπαϊκό προορισμό σε συνεργασία με τον Όμιλο Ιταλικών."
+      },
+      // 22. El Greco
+      {
+        id: "omilos-22",
+        title: '"Από τον Δομήνικο Θεοτοκόπουλο του Χάνδακα στον El Greco του Τολέδο. Ένας Κρητικός παγκόσμιος καλλιτέχνης"',
+        category: "Καλές Τέχνες – Εικαστικά",
+        type: "omilos",
+        teacher: "Γεώργιος Γουγάκης",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Τρίτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/elgreco.jpg",
+        code: "B6A2D",
+        description: "Μελέτη της εικαστικής διαδρομής του Δομήνικου Θεοτοκόπουλου από τον Χάνδακα της Κρήτης έως το Τολέδο της Ισπανίας. Το πολιτισμικό περιβάλλον του 16ου αιώνα, η Κρητική Σχολή, ο Μιχαήλ Δαμασκηνός και η ανάδειξή του σε κορυφαία μορφή της παγκόσμιας τέχνης."
+      },
+      // 23. Φακός Ομάδα Α
+      {
+        id: "omilos-23",
+        title: "Μια φορά κι έναν... φακό (Ομάδα Α)",
+        category: "Καλές Τέχνες – Κινηματογράφος-Φωτογραφία",
+        type: "omilos",
+        teacher: "Ευθυμία Δήμου",
+        specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Δευτέρα",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/fakos-a.jpg",
+        code: "B8AAB",
+        description: "Εργαστήριο κινηματογραφικής παιδείας. Από τη σύλληψη της ιδέας και το σενάριο, μέχρι τα γυρίσματα, το μοντάζ και την τελική προβολή. Ανάπτυξη δημιουργικότητας, συνεργασίας και έκφρασης μέσα από τον ήχο και την κινούμενη εικόνα."
+      },
+      // 24. Φακός Ομάδα Β
+      {
+        id: "omilos-24",
+        title: "Μια φορά κι έναν... φακό (Ομάδα Β)",
+        category: "Καλές Τέχνες – Κινηματογράφος-Φωτογραφία",
+        type: "omilos",
+        teacher: "Αικατερίνη Παπαδάκη",
+        specialty: "ΠΕ05 - ΓΑΛΛΙΚΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Δευτέρα",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/fakos-b.jpg",
+        code: "BD507",
+        description: "Εργαστήριο κινηματογραφικής παιδείας (Ομάδα Β). Συνεργάζεται παράλληλα με την Ομάδα Α σε όλα τα επιμέρους στάδια παραγωγής για τη δημιουργία κοινών ή αλληλοσυμπληρούμενων οπτικοακουστικών ταινιών."
+      },
+      // 25. Adopt-a-Spot Ομάδα Β
+      {
+        id: "omilos-25",
+        title: "Adopt-a-Spot: Η Γειτονιά & η Θάλασσά μας στα Χέρια μας (Ομάδα Β)",
+        category: "STEAM – Περιβάλλον & Βιωσιμότητα",
+        type: "omilos",
+        teacher: "Ευθυμία Δήμου",
+        specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/adopt-b.jpg",
+        code: "—",
+        description: "Περιβαλλοντικός όμιλος (Ομάδα Β). Σε σύμπραξη με την ομάδα Α για δράσεις καθαρισμού ακτών, προστασία του θαλάσσιου οικοσυστήματος και φροντίδα πάρκων της σχολικής γειτονιάς."
+      },
+      // 26. Μαθαίνω πώς να μαθαίνω
+      {
+        id: "omilos-26",
+        title: "Μαθαίνω πώς να μαθαίνω!",
+        category: "Κοινωνικές – Ψυχοκοινωνική Ανάπτυξη",
+        type: "omilos",
+        teacher: "Στυλιανή Παπαδάκη",
+        specialty: "ΠΕ78 - ΚΟΙΝΩΝΙΚΩΝ ΕΠΙΣΤΗΜΩΝ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Τρίτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/learning.jpg",
+        code: "D5358",
+        description: "Ειδικό εργαστήριο για μαθητές Α΄ Γυμνασίου: πώς λειτουργεί η μνήμη και η προσοχή, πώς οργανώνεται ο χρόνος μελέτης, τεχνικές σημειώσεων και περιλήψεων, αντιμετώπιση του άγχους και ενίσχυση της μαθησιακής αυτονομίας."
+      },
+      // 27. Αθλητισμός, Υγεία και Ηγεσία
+      {
+        id: "omilos-27",
+        title: "«Αθλητισμός, Υγεία και Ηγεσία»",
+        category: "Κοινωνικές – Αθλητισμός",
+        type: "omilos",
+        teacher: "Γεώργιος Νεονάκης",
+        specialty: "ΠΕ11 - ΦΥΣΙΚΗΣ ΑΓΩΓΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Προαύλιος χώρος",
+        image: "images/athlitismos.jpg",
+        code: "D8A6F",
+        description: "Συνδυασμός του αθλητισμού με την επιστημονική σκέψη, την υγεία, την ηγεσία, την ομαδικότητα και την κοινωνική ευθύνη. Ο αθλητισμός ως τρόπος ζωής και ενίσχυσης της προσωπικότητας."
+      },
+      // 28. Art in Motion
+      {
+        id: "omilos-28",
+        title: "Art in Motion - Εικόνα, Ήχος και Κίνηση",
+        category: "Καλές Τέχνες – Κινηματογράφος-Φωτογραφία",
+        type: "omilos",
+        teacher: "Θεόδωρος Χιωτίδης",
+        specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Τετάρτη",
+        room: "Εργ. Πληροφορικής",
+        image: "images/artinmotion.jpg",
+        code: "—",
+        description: "Εισαγωγή στον κόσμο του Video Art. Δημιουργία σύντομων οπτικοακουστικών έργων μέσα από πειραματισμό με την ψηφιακή εικόνα, τον ήχο, την κίνηση, το ρυθμό και τη σύγχρονη καλλιτεχνική έκφραση."
+      },
+      // 29. Από την Ιδέα στο Προϊόν
+      {
+        id: "omilos-29",
+        title: "ΠΑΙΖΟΝΤΑΣ ΔΗΜΙΟΥΡΓΟΥΜΕ... ΑΠΟ ΤΗΝ ΙΔΕΑ ΣΤΟ ΠΡΟΪΟΝ",
+        category: "STEAM – Επιχειρηματικότητα & Καινοτομία",
+        type: "omilos",
+        teacher: "Αικατερίνη Βασιλάκη",
+        specialty: "ΠΕ88.05 - ΦΥΣΙΚΟΥ ΠΕΡΙΒΑΛΛΟΝΤΟΣ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Τρίτη",
+        room: "Αίθουσα τεχνολογίας",
+        image: "images/idea-proion.jpg",
+        code: "—",
+        description: "Μετατροπή μιας ιδέας σε πραγματικό προϊόν! Μέσα από έρευνα, κατασκευές, μακέτες και επίλυση προβλημάτων, τα παιδιά μαθαίνουν πώς σχεδιάζεται ένα προϊόν, πώς οργανώνεται ο χώρος παραγωγής του και καλλιεργούν πρωτοβουλία και επιχειρηματική σκέψη."
+      },
+      // 30. Smart School Ασφαλές
+      {
+        id: "omilos-30",
+        title: "Smart School: Το Έξυπνο Ασφαλές Σχολείο μας",
+        category: "STEAM – Ρομποτική",
+        type: "omilos",
+        teacher: "Ειρήνη Ηλέκτρα Κατζαγιαννάκη",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Α΄, Β΄ Γυμνασίου",
+        day: "Πέμπτη",
+        room: "Εργ. Πληροφορικής",
+        image: "images/smart-safe.jpg",
+        code: "—",
+        description: "Μικροί εφευρέτες και προγραμματιστές του σχολείου του μέλλοντος! Με αισθητήρες και αυτοματισμούς, οι μαθητές σχεδιάζουν συστήματα ειδοποίησης, έξυπνο φωτισμό και εφαρμογές που κάνουν το σχολείο ασφαλέστερο και πιο λειτουργικό."
+      },
+      // 31. Εκκλησίες Ηρακλείου
+      {
+        id: "omilos-31",
+        title: 'Ηράκλειο. Μια πόλη σταυροδρόμι ιστορίας και πολιτισμού: "Περιδιαβαίνοντας στις υστεροβυζαντινές και ενετικές εκκλησίες του τόπου μας"',
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Μαρία Θεοδωράκη",
+        specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄ Γυμνασίου",
+        day: "Τρίτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/ekklisies.jpg",
+        code: "EEBA9",
+        description: "Ανακάλυψη των σημαντικότερων ιστορικών εκκλησιών του Ηρακλείου. Συνύπαρξη βυζαντινής ναοδομίας και Κρητικής Σχολής αγιογραφίας. Συλλογή ιστορικού υλικού και δημιουργία ψηφιακής γκαλερί για την προστασία της τοπικής πολιτιστικής κληρονομιάς."
+      },
+      // 32. Ταξίδι στον κόσμο των Θρησκειών
+      {
+        id: "omilos-32",
+        title: "Ταξίδι στον κόσμο των Θρησκειών",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Ευαγγελία Χατζάκη",
+        specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
+        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/thriskeies.jpg",
+        code: "F188B",
+        description: "Γινόμαστε εξερευνητές των παγκόσμιων θρησκευτικών παραδόσεων! Μέσα από χάρτες, εικόνες, βίντεο, σύμβολα και παιχνίδια γνώσεων, οι μαθητές δημιουργούν το «Διαβατήριο των Θρησκειών», μαθαίνοντας τον σεβασμό στη διαφορετικότητα."
+      },
+      // 33. Python & micro:bit
+      {
+        id: "omilos-33",
+        title: "Python, Physical Computing και Αυτοματισμοί με micro:bit",
+        category: "STEAM – Επιστήμη Υπολογιστών",
+        type: "omilos",
+        teacher: "Σοφία Κασωτάκη",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Εργ. Πληροφορικής Λυκείου",
+        image: "images/python-microbit.jpg",
+        code: "—",
+        description: "Εισαγωγή στον προγραμματισμό με Python και στον φυσικό υπολογισμό (Physical Computing) με την πλακέτα micro:bit. Σχεδίαση έξυπνων κατασκευών και αυτοματισμών που αλληλεπιδρούν με το φυσικό περιβάλλον και επίλυση πραγματικών προβλημάτων."
+      },
+      // 34. Digital Citizens
+      {
+        id: "omilos-34",
+        title: "Digital Citizens: Υπολογιστική Σκέψη, Ψηφιακές Δεξιότητες και Τεχνητή Νοημοσύνη με βάση το DigComp 3.0",
+        category: "STEAM – Επιστήμη Υπολογιστών & AI",
+        type: "omilos",
+        teacher: "Σοφία Κασωτάκη",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Γ΄ Γυμν. & Α΄ Λυκ.",
+        day: "Παρασκευή",
+        room: "Εργ. Πληροφορικής Λυκείου",
+        image: "images/digital-citizens.jpg",
+        code: "D6337",
+        description: "Καλλιέργεια υπολογιστικής σκέψης, εξοικείωση με βασικές αρχές Τεχνητής Νοημοσύνης (AI) και ενίσχυση των ψηφιακών δεξιοτήτων των μαθητών με βάση το ευρωπαϊκό πλαίσιο DigComp 3.0."
+      },
+      // 35. Γερμανικά Λυκείου
+      {
+        id: "omilos-35",
+        title: "Γερμανικά αλλιώς: Σελίδες και οθόνη",
+        category: "Ξένες Γλώσσες – Γλώσσα & Πολιτισμός",
+        type: "omilos",
+        teacher: "Μαρία Σεργίου",
+        specialty: "ΠΕ07 - ΓΕΡΜΑΝΙΚΗΣ",
+        grades: "Α΄, Β΄, Γ΄ Λυκείου",
+        day: "Τετάρτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/germanika-lykeio.jpg",
+        code: "FBCF7",
+        description: "Όμιλος Γερμανικής Γλώσσας και Πολιτισμού για μαθητές Λυκείου. Σύνδεση της παραδοσιακής έντυπης λογοτεχνίας με τα σύγχρονα ψηφιακά μέσα, βίντεο, podcasts και διαδραστική εκμάθηση."
+      },
+
+      // --- 11 ΤΜΗΜΑΤΑ ΕΝΙΣΧΥΤΙΚΗΣ ΔΙΔΑΣΚΑΛΙΑΣ ---
+      {
+        id: "enisx-1",
+        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα της Α΄ Γυμνασίου (Τμήμα Α)",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Αντιγόνη Ζήση",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Δευτέρα",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-glwssa-a1.jpg",
+        code: "ΕΝΙΣΧ-01",
+        description: "Στοχευμένη υποστήριξη για την κάλυψη μαθησιακών κενών, την εμπέδωση γραμματικών και συντακτικών φαινομένων και τη βελτίωση της γραπτής έκφρασης στη Νεοελληνική Γλώσσα της Α΄ Γυμνασίου."
+      },
+      {
+        id: "enisx-2",
+        title: '"Το εργαστήρι της αρχαίας ελληνικής γλώσσας"',
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Ελένη Λουμπάκη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Β΄ Γυμνασίου",
+        day: "Δευτέρα",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-arxaia-b.jpg",
+        code: "ΕΝΙΣΧ-02",
+        description: "Ενισχυτική διδασκαλία στα Αρχαία Ελληνικά της Β΄ Γυμνασίου. Εμπέδωση βασικών γραμματικών κανόνων, συντακτικής ανάλυσης και εξοικείωση με τη μετάφραση και ερμηνεία κειμένων."
+      },
+      {
+        id: "enisx-3",
+        title: "Ενισχυτική Διδασκαλία στα Αρχαία Ελληνικά Γ΄ Γυμνασίου",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Γεώργιος Γουγάκης",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Γ΄ Γυμνασίου",
+        day: "Δευτέρα",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-arxaia-c.jpg",
+        code: "ΕΝΙΣΧ-03",
+        description: "Υποστήριξη των μαθητών της Γ΄ Γυμνασίου στην Αρχαία Ελληνική Γλώσσα. Κάλυψη κενών προηγούμενων τάξεων, συστηματική επανάληψη γραμματικής-συντακτικού και προετοιμασία για το Λύκειο."
+      },
+      {
+        id: "enisx-4",
+        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα & Λογοτεχνία Γ΄ Γυμνασίου: «Γλώσσα & Έκφραση – Υποστήριξη Μαθησιακών Αναγκών»",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Ουρανία Σταμουλάκη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Γ΄ Γυμνασίου",
+        day: "Τρίτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-glwssa-c.jpg",
+        code: "ΕΝΙΣΧ-04",
+        description: "Εξειδικευμένη υποστήριξη μαθησιακών αναγκών στη Νεοελληνική Γλώσσα και Λογοτεχνία της Γ΄ Γυμνασίου. Ενίσχυση δεξιοτήτων κατανόησης κειμένου, δομής παραγράφου και ανάπτυξης επιχειρηματολογίας."
+      },
+      {
+        id: "enisx-5",
+        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα της Β΄ Γυμνασίου",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Καλλιόπη Ζερβάκη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Β΄ Γυμνασίου",
+        day: "Τρίτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-glwssa-b.jpg",
+        code: "ΕΝΙΣΧ-05",
+        description: "Ενισχυτική διδασκαλία για τη βελτίωση της επίδοσης στη Νεοελληνική Γλώσσα της Β΄ Γυμνασίου, με έμφαση στην κατανόηση κειμένων και στην ορθή χρήση γραμματικής και συντακτικού."
+      },
+      {
+        id: "enisx-6",
+        title: "Ενισχυτική Διδασκαλία Μαθηματικών Α΄ Γυμνασίου / Μαθηματικά Plus",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Αρετή Σταυροπούλου",
+        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Τετάρτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-math-a.jpg",
+        code: "ΕΝΙΣΧ-06",
+        description: "Ενισχυτική διδασκαλία Μαθηματικών Α΄ Γυμνασίου. Ομαλή μετάβαση από το Δημοτικό στο Γυμνάσιο, εμπέδωση βασικών εννοιών (κλάσματα, εξισώσεις, γεωμετρία) και επίλυση αποριών χωρίς άγχος."
+      },
+      {
+        id: "enisx-7",
+        title: "Κατανοώ, Εφαρμόζω, Ερμηνεύω: Ενισχυτική Διδασκαλία Φυσικής Β΄ Γυμνασίου",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Περσεφόνη Φραγκιαδάκη",
+        specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
+        grades: "Β΄ Γυμνασίου",
+        day: "Πέμπτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-fysiki-b.jpg",
+        code: "ΕΝΙΣΧ-07",
+        description: "Ενίσχυση στην κατανόηση των νόμων και των φαινομένων της Φυσικής Β΄ Γυμνασίου. Μεθοδολογία επίλυσης ασκήσεων, ερμηνεία διαγραμμάτων και πρακτική εφαρμογή των τύπων."
+      },
+      {
+        id: "enisx-8",
+        title: "Ενισχυτική Διδασκαλία στην Αρχαία Ελληνική Γλώσσα (Α΄ Γυμνασίου)",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Κωνσταντίνος Σακελλάρης",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Πέμπτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-arxaia-a.jpg",
+        code: "ΕΝΙΣΧ-08",
+        description: "Συστηματική καθοδήγηση για τους μαθητές της Α΄ Γυμνασίου στην πρώτη τους επαφή με τα Αρχαία Ελληνικά: βασική κλίση ονομάτων, ρημάτων και βασικοί συντακτικοί ρόλοι."
+      },
+      {
+        id: "enisx-9",
+        title: "ΕΝΙΣΧΥΤΙΚΗ ΔΙΔΑΣΚΑΛΙΑ ΜΑΘΗΜΑΤΙΚΩΝ Γ΄ ΓΥΜΝΑΣΙΟΥ",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Χρυσάνθη Σεληνιωτάκη",
+        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
+        grades: "Γ΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-math-c.jpg",
+        code: "ΕΝΙΣΧ-09",
+        description: "Στοχευμένη προετοιμασία και εμπέδωση της ύλης των Μαθηματικών της Γ΄ Γυμνασίου (ταυτότητες, παραγοντοποίηση, εξισώσεις 2ου βαθμού, τριγωνομετρία) για ασφαλές πέρασμα στο Λύκειο."
+      },
+      {
+        id: "enisx-10",
+        title: "Ενισχυτική Διδασκαλία Μαθηματικών Β΄ Γυμνασίου για την κάλυψη μαθησιακών κενών και την εμπέδωση βασικών γνώσεων",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Γεωργία Τόλη",
+        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
+        grades: "Β΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-math-b.jpg",
+        code: "ΕΝΙΣΧ-10",
+        description: "Κάλυψη μαθησιακών κενών και εμπέδωση της άλγεβρας και της γεωμετρίας της Β΄ Γυμνασίου, με έμφαση στη μεθοδική σκέψη και την εξάσκηση σε τυπικές ασκήσεις."
+      },
+      {
+        id: "enisx-11",
+        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα της Α΄ Γυμνασίου (Τμήμα Β)",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Κωνσταντίνος Σακελλάρης",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμνασίου",
+        day: "Παρασκευή",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/enisx-glwssa-a2.jpg",
+        code: "ΕΝΙΣΧ-11",
+        description: "Παράλληλο τμήμα υποστήριξης στη Νεοελληνική Γλώσσα για την Α΄ Γυμνασίου, με στόχο τη βελτίωση της αναγνωστικής κατανόησης και της ορθογραφίας."
+      }
+    ];
+
+    let filteredClubs = [...clubsData];
+    let activeScheduleGrade = 'all';
+
+    // RENDER CARDS VIEW
+    function renderCards() {
+      const grid = document.getElementById('cards-grid');
+      const empty = document.getElementById('empty-state');
+      const count = document.getElementById('results-count');
+
+      grid.innerHTML = '';
+      count.textContent = filteredClubs.length;
+
+      if (filteredClubs.length === 0) {
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+
+      filteredClubs.forEach(club => {
+        const isEnisx = club.type === 'enischytiki';
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col group";
+
+        const typeBadge = isEnisx 
+          ? `<span class="bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Ενισχυτική Διδασκαλία</span>`
+          : `<span class="bg-sky-100 text-sky-900 border border-sky-200 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Όμιλος</span>`;
+        
+        const codeBadge = (club.code && club.code !== '—') 
+          ? `<span class="bg-slate-100 text-slate-700 text-[10px] font-mono px-2 py-0.5 rounded-md font-bold border border-slate-200" title="ID Αίτησης">ID: ${club.code}</span>`
+          : '';
+
+        let imageHTML = '';
+        if (club.image) {
+          imageHTML = `
+            <div class="h-44 bg-slate-900 overflow-hidden relative border-b border-slate-100 cursor-pointer" onclick="openDetails('${club.id}')">
+              <img src="${club.image}" alt="${club.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100" onerror="this.parentElement.style.display='none'">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+              <span class="absolute bottom-2.5 left-3.5 text-[11px] font-semibold text-white/95 drop-shadow flex items-center gap-1.5">
+                <i data-lucide="image" class="w-3.5 h-3.5"></i> Προβολή αφίσας & λεπτομερειών
+              </span>
+            </div>`;
+        }
+
+        card.innerHTML = `
+          ${imageHTML}
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  ${typeBadge}
+                  ${codeBadge}
+                </div>
+                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">${club.day}</span>
+              </div>
+
+              <h3 class="font-bold text-slate-900 text-base group-hover:text-brand-700 transition-colors line-clamp-2 cursor-pointer mb-2 leading-snug" onclick="openDetails('${club.id}')">
+                ${club.title}
+              </h3>
+
+              <p class="text-xs text-slate-500 mb-3.5 flex items-center gap-1.5 font-medium">
+                <i data-lucide="tag" class="w-3.5 h-3.5 shrink-0 text-slate-400"></i>
+                <span class="truncate">${club.category}</span>
+              </p>
+
+              <div class="space-y-1.5 text-xs text-slate-600 bg-slate-50/80 p-3 rounded-xl border border-slate-200/70 mb-4">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="user" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                  <span class="font-semibold text-slate-800">${club.teacher}</span>
+                  <span class="text-[10px] text-slate-400">(${club.specialty.split(' - ')[0]})</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="users" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                  <span>${club.grades}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                  <span>${club.room}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2.5 border-t border-slate-100 flex items-center justify-end">
+              <button onclick="openDetails('${club.id}')" class="text-xs font-bold text-brand-700 hover:text-brand-900 flex items-center gap-1 py-1 px-2.5 rounded-lg hover:bg-brand-50 transition-colors">
+                <span>Αναλυτικά & Στόχοι</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // RENDER SCHEDULE VIEW PER GRADE (Grid 5 columns, No Scroll)
+    function renderSchedule() {
+      const dayCols = {
+        'Δευτέρα': document.getElementById('schedule-col-mon'),
+        'Τρίτη': document.getElementById('schedule-col-tue'),
+        'Τετάρτη': document.getElementById('schedule-col-wed'),
+        'Πέμπτη': document.getElementById('schedule-col-thu'),
+        'Παρασκευή': document.getElementById('schedule-col-fri')
+      };
+
+      Object.values(dayCols).forEach(col => col.innerHTML = '');
+
+      // Φιλτράρισμα βάσει επιλεγμένης τάξης
+      const filtered = clubsData.filter(club => {
+        if (activeScheduleGrade === 'all') return true;
+        return club.grades.includes(activeScheduleGrade);
+      });
+
+      // Μετρητής για άδειες μέρες
+      const dayCounts = { 'Δευτέρα': 0, 'Τρίτη': 0, 'Τετάρτη': 0, 'Πέμπτη': 0, 'Παρασκευή': 0 };
+
+      filtered.forEach(club => {
+        const days = club.day.includes('&') ? club.day.split('&').map(d => d.trim()) : [club.day];
+
+        days.forEach(day => {
+          if (dayCols[day]) {
+            dayCounts[day]++;
+            const isEnisx = club.type === 'enischytiki';
+            const item = document.createElement('div');
+            item.className = `p-2.5 rounded-xl border text-left cursor-pointer transition-all hover:scale-[1.02] shadow-sm flex flex-col justify-between ${
+              isEnisx 
+                ? 'bg-amber-50/80 border-amber-200 hover:border-amber-400' 
+                : 'bg-slate-50/80 border-slate-200 hover:border-brand-500'
+            }`;
+            item.onclick = () => openDetails(club.id);
+
+            item.innerHTML = `
+              <div>
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${
+                    isEnisx ? 'bg-amber-200/70 text-amber-900' : 'bg-sky-100 text-sky-800'
+                  }">
+                    ${isEnisx ? 'Ενισχυτική' : 'Όμιλος'}
+                  </span>
+                  <span class="text-[10px] text-slate-500 font-semibold truncate max-w-[90px]">${club.grades.split(',')[0]}</span>
+                </div>
+                <h4 class="font-bold text-xs text-slate-900 leading-snug line-clamp-2 mb-1">${club.title}</h4>
+              </div>
+              <div class="mt-1 pt-1 border-t border-slate-200/50">
+                <p class="text-[11px] text-slate-600 truncate font-medium">${club.teacher}</p>
+                <p class="text-[10px] text-slate-400 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-slate-400"></i>
+                  <span class="truncate">${club.room}</span>
+                </p>
+              </div>
+            `;
+            dayCols[day].appendChild(item);
+          }
+        });
+      });
+
+      // Αν μια μέρα δεν έχει τίποτα στην επιλεγμένη τάξη
+      Object.keys(dayCounts).forEach(day => {
+        if (dayCounts[day] === 0) {
+          dayCols[day].innerHTML = `
+            <div class="h-32 flex flex-col items-center justify-center text-center p-3 text-slate-300">
+              <i data-lucide="calendar-x" class="w-6 h-6 mb-1"></i>
+              <span class="text-[11px] text-slate-400">Καμία δράση</span>
+            </div>
+          `;
+        }
+      });
+
+      lucide.createIcons();
+    }
+
+    // Schedule Grade Tab Switcher
+    function setScheduleGrade(grade) {
+      activeScheduleGrade = grade;
+      const buttons = {
+        'all': document.getElementById('btn-grade-all'),
+        'Α΄': document.getElementById('btn-grade-a'),
+        'Β΄': document.getElementById('btn-grade-b'),
+        'Γ΄': document.getElementById('btn-grade-c'),
+        'Λυκ': document.getElementById('btn-grade-lyk')
+      };
+
+      Object.keys(buttons).forEach(g => {
+        if (g === grade) {
+          buttons[g].className = "px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-brand-800 text-white shadow-sm";
+        } else {
+          buttons[g].className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition-all";
+        }
+      });
+
+      renderSchedule();
+    }
+
+    // Filter Logic for Cards View
+    function applyFilters() {
+      const search = document.getElementById('search-input').value.toLowerCase().trim();
+      const type = document.getElementById('filter-type').value;
+      const grade = document.getElementById('filter-grade').value;
+      const day = document.getElementById('filter-day').value;
+
+      filteredClubs = clubsData.filter(item => {
+        const matchesSearch = !search || 
+          item.title.toLowerCase().includes(search) ||
+          item.teacher.toLowerCase().includes(search) ||
+          item.category.toLowerCase().includes(search) ||
+          item.description.toLowerCase().includes(search) ||
+          (item.code && item.code.toLowerCase().includes(search));
+
+        const matchesType = (type === 'all') || (item.type === type);
+        const matchesGrade = (grade === 'all') || item.grades.includes(grade);
+        const matchesDay = (day === 'all') || item.day.includes(day);
+
+        return matchesSearch && matchesType && matchesGrade && matchesDay;
+      });
+
+      renderCards();
+    }
+
+    function resetFilters() {
+      document.getElementById('search-input').value = '';
+      document.getElementById('filter-type').value = 'all';
+      document.getElementById('filter-grade').value = 'all';
+      document.getElementById('filter-day').value = 'all';
+      applyFilters();
+    }
+
+    // Modal Operations
+    function openDetails(id) {
+      const club = clubsData.find(c => c.id === id);
+      if (!club) return;
+
+      const isEnisx = club.type === 'enischytiki';
+      
+      const badges = document.getElementById('modal-badges');
+      badges.innerHTML = `
+        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${
+          isEnisx ? 'bg-amber-100 text-amber-900 border border-amber-200' : 'bg-sky-100 text-sky-900 border border-sky-200'
+        }">${isEnisx ? 'Ενισχυτική Διδασκαλία' : 'Όμιλος / Σύνολο'}</span>
+        <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700 font-semibold">${club.category}</span>
+      `;
+
+      document.getElementById('modal-title').textContent = club.title;
+      document.getElementById('modal-teacher').textContent = club.teacher;
+      document.getElementById('modal-specialty').textContent = club.specialty;
+      document.getElementById('modal-grades').textContent = club.grades;
+      document.getElementById('modal-room').textContent = club.room;
+      document.getElementById('modal-day').textContent = club.day;
+      document.getElementById('modal-code').textContent = club.code || '—';
+      document.getElementById('modal-description').textContent = club.description;
+
+      const imgContainer = document.getElementById('modal-image-container');
+      const img = document.getElementById('modal-image');
+      if (club.image) {
+        img.src = club.image;
+        imgContainer.classList.remove('hidden');
+        img.onerror = () => { imgContainer.classList.add('hidden'); };
+      } else {
+        imgContainer.classList.add('hidden');
+      }
+
+      document.getElementById('details-modal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      document.getElementById('details-modal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Switch between Cards and Schedule Views
+    function switchView(view) {
+      const cardsView = document.getElementById('cards-view');
+      const scheduleView = document.getElementById('schedule-view');
+      const cardsBtn = document.getElementById('view-cards-btn');
+      const scheduleBtn = document.getElementById('view-schedule-btn');
+
+      if (view === 'cards') {
+        cardsView.classList.remove('hidden');
+        scheduleView.classList.add('hidden');
+        cardsBtn.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-white text-slate-900 shadow";
+        scheduleBtn.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white";
+      } else {
+        cardsView.classList.add('hidden');
+        scheduleView.classList.remove('hidden');
+        cardsBtn.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all text-slate-300 hover:text-white";
+        scheduleBtn.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-white text-slate-900 shadow";
+        renderSchedule();
+      }
+    }
+
+    // Event Listeners
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+    document.getElementById('filter-type').addEventListener('change', applyFilters);
+    document.getElementById('filter-grade').addEventListener('change', applyFilters);
+    document.getElementById('filter-day').addEventListener('change', applyFilters);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+    document.getElementById('details-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'details-modal') closeModal();
+    });
+
+    // Initial render
+    applyFilters();
+    renderSchedule();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
