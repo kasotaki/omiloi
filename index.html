@@ -13,15 +13,15 @@
     body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; min-height: 100vh; display: flex; flex-direction: column; line-height: 1.5; }
 
     /* Header */
-    header { background: linear-gradient(135deg, #082f49 0%, #0f172a 100%); color: #ffffff; padding: 18px 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 40; }
-    .header-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; justify-content: space-between; align-items: flex-start; }
+    header { background: linear-gradient(135deg, #082f49 0%, #0f172a 100%); color: #ffffff; padding: 16px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 40; }
+    .header-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; justify-content: space-between; align-items: flex-start; }
     @media (min-width: 768px) { .header-inner { flex-direction: row; align-items: center; } }
     .brand-wrap { display: flex; align-items: center; gap: 14px; }
     .school-logo { height: 46px; width: auto; object-fit: contain; }
     .year-badge { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.12); color: #7dd3fc; margin-bottom: 4px; }
-    .main-title { font-size: 17px; font-weight: 800; letter-spacing: -0.2px; }
-    @media (min-width: 640px) { .main-title { font-size: 20px; } }
-    .sub-title { font-size: 13px; color: #bae6fd; }
+    .main-title { font-size: 16px; font-weight: 800; letter-spacing: -0.2px; }
+    @media (min-width: 640px) { .main-title { font-size: 19px; } }
+    .sub-title { font-size: 12.5px; color: #bae6fd; }
 
     /* Switcher Buttons */
     .tab-switcher { display: flex; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
@@ -39,7 +39,7 @@
     
     .search-input-wrap { position: relative; }
     .search-input-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; width: 16px; height: 16px; }
-    .filter-control { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 14px; background: #f8fafc; color: #334155; outline: none; }
+    .filter-control { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 13.5px; background: #f8fafc; color: #334155; outline: none; }
     .filter-control:focus { border-color: #0284c7; background: #ffffff; box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15); }
     .search-input { padding-left: 36px; }
 
@@ -56,7 +56,6 @@
     .card { background: #ffffff; border-radius: 18px; border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column; transition: all 0.25s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
     .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: #cbd5e1; }
     
-    /* Poster Container (Περιορισμένο μέγεθος & προσαρμογή) */
     .card-img-wrap { height: 230px; background: #090e17; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; padding: 6px; }
     .card-img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
     .img-tag { position: absolute; bottom: 8px; left: 10px; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); color: #ffffff; font-size: 11px; padding: 2px 8px; border-radius: 6px; display: flex; align-items: center; gap: 4px; }
@@ -106,19 +105,36 @@
     .sched-item-title { font-size: 11.5px; font-weight: 700; color: #0f172a; margin: 4px 0 2px 0; line-height: 1.3; }
     .sched-item-teacher { font-size: 10.5px; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    /* Modal */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(4px); z-index: 50; display: none; align-items: center; justify-content: center; padding: 16px; }
-    .modal-box { background: #ffffff; border-radius: 20px; width: 100%; max-width: 680px; max-height: 92vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); border: 1px solid #cbd5e1; }
-    .modal-header { padding: 16px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: flex-start; background: #f8fafc; }
+    /* Modal Details & Enhanced Poster Viewer */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(5px); z-index: 50; display: none; align-items: center; justify-content: center; padding: 14px; }
+    .modal-box { background: #ffffff; border-radius: 20px; width: 100%; max-width: 720px; max-height: 92vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); border: 1px solid #cbd5e1; }
+    .modal-header { padding: 14px 18px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: flex-start; background: #f8fafc; }
     .modal-close { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #64748b; }
-    .modal-body { padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
-    .modal-poster-wrap { background: #020617; border-radius: 12px; padding: 10px; display: flex; justify-content: center; align-items: center; border: 1px solid #e2e8f0; }
-    .modal-poster { max-height: 60vh; width: auto; object-fit: contain; border-radius: 6px; }
-    .modal-meta-grid { display: grid; grid-template-columns: 1fr; gap: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; font-size: 12.5px; }
+    .modal-body { padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+    
+    /* Poster Container with Controls */
+    .modal-poster-wrap { background: #030712; border-radius: 14px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #1f2937; position: relative; }
+    .poster-img-container { max-height: 52vh; width: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden; cursor: zoom-in; }
+    .modal-poster { max-height: 52vh; width: auto; max-width: 100%; object-fit: contain; border-radius: 6px; transition: transform 0.25s ease; }
+    .poster-img-container.zoomed { cursor: zoom-out; overflow: auto; max-height: 65vh; }
+    .poster-img-container.zoomed .modal-poster { transform: scale(1.6); transform-origin: top center; max-height: none; }
+    
+    .poster-bar { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 11px; color: #94a3b8; }
+    .poster-btn-group { display: flex; gap: 6px; }
+    .poster-btn { background: rgba(255,255,255,0.12); color: #ffffff; border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+    .poster-btn:hover { background: rgba(255,255,255,0.22); color: #38bdf8; }
+
+    .modal-meta-grid { display: grid; grid-template-columns: 1fr; gap: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; font-size: 12.5px; }
     @media (min-width: 640px) { .modal-meta-grid { grid-template-columns: repeat(2, 1fr); } }
-    .modal-desc-box { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; font-size: 13.5px; line-height: 1.6; color: #334155; white-space: pre-line; }
-    .modal-footer { padding: 12px 20px; border-top: 1px solid #f1f5f9; background: #f8fafc; display: flex; justify-content: flex-end; }
+    .modal-desc-box { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; font-size: 13px; line-height: 1.6; color: #334155; white-space: pre-line; }
+    .modal-footer { padding: 12px 18px; border-top: 1px solid #f1f5f9; background: #f8fafc; display: flex; justify-content: flex-end; }
     .modal-done-btn { background: #0f172a; color: #ffffff; border: none; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+
+    /* Lightbox Modal (Full Resolution) */
+    .lightbox-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 60; display: none; flex-direction: column; justify-content: center; align-items: center; padding: 12px; }
+    .lightbox-close { position: absolute; top: 16px; right: 20px; background: rgba(255,255,255,0.2); border: none; color: #ffffff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 70; }
+    .lightbox-img-wrap { width: 100%; height: 90vh; display: flex; justify-content: center; align-items: center; overflow: auto; padding: 10px; }
+    .lightbox-img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; cursor: zoom-out; }
 
     /* Footer */
     footer { background: #ffffff; border-top: 1px solid #e2e8f0; padding: 20px; text-align: center; font-size: 12px; color: #64748b; margin-top: auto; }
@@ -205,7 +221,7 @@
       <div id="empty-state" class="hidden" style="text-align:center; padding: 48px; background:#fff; border-radius:18px; border:1px solid #e2e8f0;">
         <i data-lucide="folder-search" style="width:40px; height:40px; color:#cbd5e1; margin-bottom:10px;"></i>
         <h3 style="font-size:16px; font-weight:700;">Δεν βρέθηκαν αποτελέσματα</h3>
-        <p style="font-size:13px; color:#64748b; margin-top:4px;">Δοκιμάστε να αναζητήσετε με διαφορετικά κριτήρια.</p>
+        <p style="font-size:13px; color:#64748b; margin-top:4px;">Δοκιμάστε να αλλάξετε τα φίλτρα αναζήτησης.</p>
       </div>
 
     </div>
@@ -216,7 +232,7 @@
         <div class="sched-header">
           <div>
             <h2 style="font-size:18px; font-weight:800; color:#0f172a;">Εβδομαδιαίο Ωρολόγιο Πρόγραμμα</h2>
-            <p style="font-size:12px; color:#64748b;">Κάντε κλικ σε οποιονδήποτε όμιλο για λεπτομέρειες και στόχους.</p>
+            <p style="font-size:12px; color:#64748b;">Πλήρης εικόνα του προγράμματος ανά ημέρα και τάξη. Κάντε κλικ σε οποιονδήποτε όμιλο για λεπτομέρειες.</p>
           </div>
           <div class="grade-selector">
             <button onclick="setScheduleGrade('all')" id="btn-sched-all" class="grade-btn active">Όλες</button>
@@ -260,14 +276,33 @@
       <div class="modal-header">
         <div>
           <div id="modal-badges" style="display:flex; gap:6px; margin-bottom:6px;"></div>
-          <h3 id="modal-title" style="font-size:17px; font-weight:800; color:#0f172a;"></h3>
+          <h3 id="modal-title" style="font-size:16px; font-weight:800; color:#0f172a;"></h3>
         </div>
         <button onclick="closeModal()" class="modal-close"><i data-lucide="x" style="width:16px; height:16px;"></i></button>
       </div>
       <div class="modal-body">
+        
+        <!-- Enhanced Poster View with Zoom Controls -->
         <div id="modal-image-container" class="modal-poster-wrap hidden">
-          <img id="modal-image" src="" alt="Αφίσα" class="modal-poster">
+          <div class="poster-img-container" id="poster-click-container" title="Κάντε κλικ για μεγέθυνση/σμίκρυνση">
+            <img id="modal-image" src="" alt="Αφίσα" class="modal-poster">
+          </div>
+          <div class="poster-bar">
+            <span>💡 Κάντε κλικ στην αφίσα για ζουμ</span>
+            <div class="poster-btn-group">
+              <button class="poster-btn" onclick="toggleModalZoom()">
+                <i data-lucide="zoom-in" style="width:13px; height:13px;"></i> Ζουμ
+              </button>
+              <button class="poster-btn" onclick="openLightbox()">
+                <i data-lucide="maximize" style="width:13px; height:13px;"></i> Πλήρης οθόνη
+              </button>
+              <a id="poster-newtab-btn" href="#" target="_blank" class="poster-btn">
+                <i data-lucide="external-link" style="width:13px; height:13px;"></i> Άνοιγμα αρχείου
+              </a>
+            </div>
+          </div>
         </div>
+
         <div class="modal-meta-grid">
           <div><strong style="color:#64748b;">Εκπαιδευτικός:</strong> <span id="modal-teacher" style="font-weight:700;"></span></div>
           <div><strong style="color:#64748b;">Ειδικότητα:</strong> <span id="modal-specialty" style="font-weight:700;"></span></div>
@@ -276,6 +311,7 @@
           <div><strong style="color:#64748b;">Ημέρα:</strong> <span id="modal-day" style="font-weight:700;"></span></div>
           <div><strong style="color:#64748b;">ID Αίτησης:</strong> <span id="modal-code" style="font-family:monospace; font-weight:800; color:#0369a1;"></span></div>
         </div>
+
         <div>
           <h4 style="font-size:11px; font-weight:800; text-transform:uppercase; color:#94a3b8; margin-bottom:6px; letter-spacing:0.5px;">Περιγραφή & Στόχοι</h4>
           <div id="modal-description" class="modal-desc-box"></div>
@@ -287,6 +323,14 @@
     </div>
   </div>
 
+  <!-- Dedicated Lightbox Modal for HD Viewing -->
+  <div id="lightbox-modal" class="lightbox-backdrop" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()"><i data-lucide="x" style="width:22px; height:22px;"></i></button>
+    <div class="lightbox-img-wrap">
+      <img id="lightbox-image" src="" alt="Αφίσα σε πλήρες μέγεθος" class="lightbox-img">
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>© 2026-2027 Δημόσιο Ωνάσειο Σχολείο - Ημερήσιο Γυμνάσιο Ηρακλείου</p>
@@ -295,211 +339,59 @@
 
   <!-- SCRIPT -->
   <script>
+    // ΕΠΙΣΗΜΟ ΠΛΗΡΕΣ ΜΗΤΡΩΟ 45 ΔΡΑΣΕΩΝ (34 ΟΜΙΛΟΙ + 11 ΕΝΙΣΧΥΤΙΚΕΣ)
     const clubsData = [
+      // === ΔΕΥΤΕΡΑ ===
       {
-        id: "omilos-1",
-        title: '"Η δύναμή σου, το επιχείρημά σου!"',
-        category: "Ανθρωπιστικές - Επιχειρηματολογία-Ρητορική",
-        type: "omilos",
-        teacher: "Ελένη Λουμπάκη",
+        id: "omilos-enisx-glwssa-a1",
+        title: "Όμιλος Ενισχυτικής Διδασκαλίας στη Νεοελληνική Γλώσσα της Α΄ Γυμν.",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Ζήση Αντιγόνη",
         specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Τετάρτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/rhtoriki.jpg",
-        code: "—",
-        description: "Ο όμιλος ρητορικής «Η δύναμή σου, το επιχείρημά σου» δίνει στους μαθητές και στις μαθήτριες την ευκαιρία να ανακαλύψουν τη δύναμη του προφορικού λόγου και να εκφράζουν με σαφήνεια τις σκέψεις, τις απόψεις και τα συναισθήματά τους. Μέσα από ευχάριστες δραστηριότητες, συζητήσεις, παιχνίδια λόγου και μικρές παρουσιάσεις, τα παιδιά θα μάθουν να ακούν προσεκτικά τα λόγια των άλλων, να οργανώνουν τις ιδέες τους και να υποστηρίζουν τη γνώμη τους με κατάλληλους λόγους και παραδείγματα. Παράλληλα, θα ενισχύσουν την αυτοπεποίθησή τους, τη συνεργατικότητά τους και τον σεβασμό τους στις διαφορετικές απόψεις. Στόχος είναι να αποκτήσουν μεγαλύτερη άνεση στην επικοινωνία, να συμμετέχουν ενεργά σε συζητήσεις και να μιλούν με αυτοπεποίθηση. Έτσι, μέσα από τον όμιλο αυτό θα καλλιεργήσουν τη διάθεση για ουσιαστικό διάλογο, ενώ μέσα από όλες τις διαδικασίες θα κερδίσουν σε ωριμότητα, αυτοέλεγχο, αυτοβελτίωση και ενσυναίσθηση. Επιστέγασμα όλων των προσπαθειών τους θα είναι η συμμετοχή σε διασχολικό διαγωνισμό Ρητορικής, που πραγματοποιείται στο Ρέθυμνο σε συνεργασία με τη Φιλοσοφική Σχολή του Πανεπιστημίου Κρήτης."
+        grades: "Α΄ Γυμν.",
+        day: "Δευτέρα",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/enisx-glwssa-a1.jpg",
+        code: "ΕΝΙΣΧ-01",
+        description: "Στοχευμένη υποστήριξη για την κάλυψη μαθησιακών κενών, την εμπέδωση γραμματικών και συντακτικών φαινομένων και τη βελτίωση της γραπτής έκφρασης στη Νεοελληνική Γλώσσα της Α΄ Γυμνασίου."
       },
       {
-        id: "omilos-2",
-        title: "Smart School: Το Έξυπνο Οικολογικό Σχολείο μας",
-        category: "STEAM – Ρομποτική",
-        type: "omilos",
-        teacher: "Ειρήνη Ηλέκτρα Κατζαγιαννάκη",
-        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
-        grades: "Α΄, Β΄ Γυμνασίου",
-        day: "Τρίτη",
-        room: "Εργ. Πληροφορικής",
-        image: "images/smart-eco.jpg",
-        code: "—",
-        description: "Στον Όμιλο Ρομποτικής \"Smart School: Το Έξυπνο Οικολογικό Σχολείο μας\" οι μαθητές και οι μαθήτριες θα έχουν την ευκαιρία να δημιουργήσουν, να πειραματιστούν και να λύσουν πραγματικά προβλήματα, αξιοποιώντας αισθητήρες, κινητήρες και αυτοματισμούς.\n\nΜέσα από ομαδικά projects θα σχεδιάσουν τις δικές τους έξυπνες εφαρμογές για ένα «Έξυπνο Οικολογικό Σχολείο», όπως έξυπνος φωτισμός, σύστημα εξοικονόμησης ενέργειας, σύστημα ανακύκλωσης και πολλές ακόμη ιδέες που θα προκύψουν από τη φαντασία τους!\n\nΣτόχος μας δεν είναι απλώς να μάθουμε ρομποτική, υπολογιστική σκέψη και προγραμματισμό. Θέλουμε να μάθουμε να σκεφτόμαστε, να δημιουργούμε και να μετατρέπουμε μια ιδέα σε πραγματική κατασκευή!\n\nΟ όμιλός μας θα είναι ένα όμορφο ταξίδι που θα απαιτεί περιέργεια, δημιουργικότητα και διάθεση για συνεργασία, ώστε να προσπαθήσουμε να κάνουμε το σχολείο μας καλύτερο, πιο οικολογικό και πιο έξυπνο!"
-      },
-      {
-        id: "omilos-3",
-        title: "ΔΗΜΙΟΥΡΓΩ ΤΗΝ ΔΙΚΗ ΜΟΥ ΤΑΙΝΙΑ ΜΙΚΡΟΥ ΜΗΚΟΥΣ",
-        category: "Καλές Τέχνες - Κινηματογράφος-Φωτογραφία",
-        type: "omilos",
-        teacher: "Θεόδωρος Χιωτίδης",
-        specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Παρασκευή",
-        room: "Εργ. Πληροφορικής",
-        image: "images/tainia.jpg",
-        code: "1A49F",
-        description: "Ο όμιλος «Δημιουργώ τη δική μου ταινία μικρού μήκους» δίνει στους μαθητές και τις μαθήτριες την ευκαιρία να γνωρίσουν τον κόσμο του κινηματογράφου και να δημιουργήσουν τη δική τους μικρή ταινία, από την αρχική ιδέα έως την τελική παρουσίαση.\n\nΜέσα από ομαδικές και δημιουργικές δραστηριότητες, οι μαθητές θα μάθουν πώς γεννιέται μια ιστορία, πώς οργανώνεται μια ταινία και πώς μπορούν να εκφράσουν ιδέες και συναισθήματα μέσα από εικόνα, ήχο και κίνηση.\n\nΠαράλληλα, θα καλλιεργήσουν τη φαντασία, τη δημιουργικότητα και την παρατηρητικότητά τους, θα αναπτύξουν δεξιότητες συνεργασίας, επικοινωνίας και ανάληψης ευθύνης και θα εξοικειωθούν με τη χρήση απλών ψηφιακών εργαλείων.\n\nΣτόχος είναι να αποκτήσουν αυτοπεποίθηση στην έκφρασή τους και να βιώσουν τη χαρά της δημιουργίας ενός κοινού έργου."
-      },
-      {
-        id: "omilos-4",
-        title: "NeuroQuest_Εξερευνώντας τα μυστήρια του εγκεφάλου",
-        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
-        type: "omilos",
-        teacher: "Μαρία Σαββάκη",
-        specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Τετάρτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/neuroquest.jpg",
-        code: "—",
-        description: "Ο Όμιλος Νευροεπιστημών «NeuroQuest_Εξερευνώντας τα μυστήρια του εγκεφάλου» προσφέρει στους μαθητές την ευκαιρία να γνωρίσουν τον ανθρώπινο εγκέφαλο μέσα από βιωματικές δραστηριότητες, πειράματα, συνεργατική μάθηση και δημιουργική επίλυση προβλημάτων. Οι μαθητές διερευνούν βασικές έννοιες της νευροεπιστήμης, όπως η μνήμη, η προσοχή, η μάθηση, τα συναισθήματα και η νευροπλαστικότητα, αξιοποιώντας σύγχρονες εκπαιδευτικές πρακτικές με τη συμβολή εξειδικευμένων ακαδημαϊκών και κλινικών προσκεκλημένων ειδικοτήτων. Παράλληλα, εργάζονται σε ομάδες για να σχεδιάσουν, να αναπτύξουν και να δοκιμάσουν το δικό τους εκπαιδευτικό επιτραπέζιο παιχνίδι, μετατρέποντας τη γνώση σε δημιουργία. Μέσα από τη διαδικασία αυτή καλλιεργούν δεξιότητες συνεργασίας, κριτικής σκέψης, επικοινωνίας, δημιουργικότητας και επιστημονικού εγγραμματισμού. Ο όμιλος ολοκληρώνεται με την παρουσίαση του τελικού παιχνιδιού και των αποτελεσμάτων της εργασίας τους, αναδεικνύοντας τη σύνδεση της επιστήμης με την καθημερινή ζωή και τη χαρά της ανακαλυπτικής μάθησης."
-      },
-      {
-        id: "omilos-5",
-        title: "Η καθημερινή ζωή στη Μινωική Κρήτη",
-        category: "Ανθρωπιστικές – Ιστορία",
-        type: "omilos",
-        teacher: "Κωνσταντίνος Σακελλάρης",
+        id: "omilos-enisx-arxaia-b",
+        title: '"Το εργαστήρι της αρχαίας ελληνικής γλώσσας" ΕΝΙΣΧΥΤΙΚΗ ΔΙΔΑΣΚΑΛΙΑ Β΄ Γυμν.',
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Λουμπάκη Ελένη",
         specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄ Γυμνασίου",
-        day: "Τετάρτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/minoiki.jpg",
-        code: "33608",
-        description: "Αντικείμενο έρευνας είναι η καθημερινή ζωή στη Μινωική Κρήτη και συγκεκριμένα σκοπός είναι οι μαθητές/τριες, με βάση τα ενδιαφέροντά τους συνεργαζόμενοι σε ομάδες εργασίας, να διερευνήσουν θέματα του καθημερινού βίου και του πολιτισμού στα μινωικά χρόνια, όπως: η θέση και ο ρόλος της γυναίκας στη μινωική κοινωνία, η μινωική θρησκεία, η μινωική αρχιτεκτονική και η κατοικία, το μινωικό ένδυμα και κόσμημα, η υπόδηση, η κόμμωση και ο καλλωπισμός, η διατροφή και η ευεξία, η άθληση και η ψυχαγωγία στη Μινωική Κρήτη, οι σχέσεις των Μινωιτών με άλλους λαούς. Το αντικείμενο άπτεται της τοπικής ιστορίας του Ηρακλείου και της Κρήτης ενώ συγχρόνως σχετίζεται με το πρόγραμμα σπουδών της αρχαίας ιστορίας στην Α΄ Γυμνασίου. Οι μαθητές/ τριες υλοποιώντας ερευνητικές εργασίες αποκομίζουν γνώσεις που σχετίζονται με την ιστορία του τόπου τους, αναπτύσσουν θετική στάση απέναντι στην ιστορική έρευνα και μαθαίνουν πως να μαθαίνουν. Επίσης οι μαθητές/τριες μπορεί, εφόσον το επιλέξουν, να ασκηθούν σε μεθόδους ποσοτικής και ποιοτικής έρευνας πεδίου/ Στο πλαίσιο αυτόοι μαθητές/ τριες θα μπορούσαν ενδεχομένως να διερευνήσουν δειγματοληπτικά την εικόνα που έχει διαμορφώσει ο μέσος μαθητής κι ο μέσος πολίτης του τόπου τους για θέματα του μινωικού πολιτισμού, καθώς επίσης να ασκηθούν στην ημιδομημένη συνέντευξη με εξειδικευμένους πάνω στο μινωικό πολιτισμό επιστήμονες."
+        grades: "Β΄ Γυμν.",
+        day: "Δευτέρα",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/enisx-arxaia-b.jpg",
+        code: "ΕΝΙΣΧ-02",
+        description: "Ενισχυτική διδασκαλία στα Αρχαία Ελληνικά της Β΄ Γυμνασίου. Εμπέδωση βασικών γραμματικών κανόνων, συντακτικής ανάλυσης και εξοικείωση με τη μετάφραση και ερμηνεία κειμένων."
       },
       {
-        id: "omilos-6",
-        title: "Adopt-a-Spot: Η Γειτονιά & η Θάλασσά μας στα Χέρια μας (ομάδα Α)",
-        category: "STEAM – Τεχνολογία, Βιωσιμότητα και Περιβαλλοντικός Αντίκτυπος",
-        type: "omilos",
-        teacher: "Αικατερίνη Παπαδάκη",
-        specialty: "ΠΕ05 - ΓΑΛΛΙΚΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
-        day: "Πέμπτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/adopt-a.jpg",
-        code: "—",
-        description: "Ο περιβαλλοντικός όμιλος έχει ως αντικείμενο την ενεργή συμμετοχή των μαθητών και μαθητριών στην προστασία και βελτίωση του περιβάλλοντος, με έμφαση στη γειτονιά του σχολείου και στις ακτές της Κρήτης. Θα υλοποιείται παράλληλα σε δύο ομάδες, οι οποίες θα συνεργάζονται και θα ανταλλάσσουν ιδέες, ενώ θα συμμετέχουν από κοινού στις δράσεις. Μέσα από βιωματικές δράσεις, οι μαθητές θα συμμετάσχουν σε καθαρισμό παραλίας και θα ενημερωθούν για τη θαλάσσια ρύπανση, σε συνεργασία με επιστήμονες και περιβαλλοντικούς φορείς, θα παρατηρήσουν και θα καταγράψουν προβλήματα, θα φροντίσουν το γειτονικό θεατράκι και το πάρκο. Σκοπός του ομίλου είναι να αναπτύξουν οικολογική συνείδηση και να κατανοήσουν ότι με συλλογική δράση μπορούν να συμβάλλουν ουσιαστικά στη βελτίωση του τόπου τους. Παράλληλα, θα καλλιεργήσουν τη συνεργασία, την υπευθυνότητα, τη δημιουργικότητα, την κριτική σκέψη και την επικοινωνία, μαθαίνοντας να προτείνουν λύσεις και να αναλαμβάνουν πρωτοβουλίες ως ενεργοί και ευαισθητοποιημένοι πολίτες."
-      },
-      {
-        id: "omilos-7",
-        title: "Εργαστήρι Μουσικής Σύνθεσης & Αυτοσχεδιασμού",
-        category: "Καλές Τέχνες - Μουσική",
-        type: "omilos",
-        teacher: "Ισίδωρος Παπαδάκης",
-        specialty: "ΠΕ79.01 - ΜΟΥΣΙΚΗΣ ΕΠΙΣΤΗΜΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄, Β΄, Γ΄ Λυκ.",
-        day: "Πέμπτη",
-        room: "Αίθουσα μουσικής",
-        image: "images/synthesi.jpg",
-        code: "34B58",
-        description: "Το εργαστήρι απευθύνεται σε μαθητές που έχουν ήδη κάποια στοιχειώδη επαφή και σχετική εξοικείωση με κάποιο ή κάποια μουσικά όργανα. Ο παιδαγωγικός σκοπός του εργαστηρίου είναι να εξοπλίσει τους μαθητές με όλες τις δεξιότητες και την τεχνική γνώση ώστε να μπορέσουν να προσεγγίσουν τη μουσική τέχνη ώς δημιουργοί, είτε στο πλαίσιο της σύνθεσης είτε του αυτοσχεδιασμού."
-      },
-      {
-        id: "omilos-8",
-        title: "Η θέση της γυναίκας στις θρησκείες",
-        category: "Ανθρωπιστικές – Ιστορία",
-        type: "omilos",
-        teacher: "Ευαγγελία Χατζάκη",
-        specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Πέμπτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/gynaika.jpg",
-        code: "—",
-        description: "Ένα δημιουργικό ταξίδι στον κόσμο των θρησκειών, με επίκεντρο τη θέση, τον ρόλο και την παρουσία της γυναίκας σε διαφορετικές θρησκευτικές παραδόσεις και ιστορικές περιόδους. Μέσα από ιστορίες σημαντικών γυναικείων μορφών, εικόνες, κείμενα, ομαδικές δραστηριότητες και συγκριτική προσέγγιση, οι μαθητές θα ανακαλύψουν διαφορετικές αντιλήψεις και πολιτισμούς, καλλιεργώντας την κριτική σκέψη, τον διάλογο και τον σεβασμό στη διαφορετικότητα."
-      },
-      {
-        id: "omilos-9",
+        id: "omilos-theatro",
         title: "Θέατρο και Δημοκρατία: Σκηνές Συμμετοχής και Μεταμόρφωσης",
         category: "Καλές Τέχνες – Θέατρο",
         type: "omilos",
-        teacher: "Αναστασία Χουρσανίδου",
+        teacher: "Χουρσανίδου Αναστασία",
         specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
         day: "Δευτέρα & Τρίτη",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/theatro.jpg",
         code: "4B422",
         description: "Ο Όμιλος στοχεύει στην εξοικείωση των μαθητών με το θέατρο και τις θεατρικές τεχνικές που αποβλέπουν στην καλλιέργεια της δημοκρατικής τους συνείδησης. Μέσα από την επαφή τους με το Θέατρο του Καταπιεσμένου του Augusto Boal, που γνώρισε τεράστια άνθιση παγκοσμίως, και μέσα από τη βιωματική θεατρική πράξη, φιλοδοξεί να συμβάλλει στην ανάπτυξη κριτικής σκέψης, φαντασίας, δημιουργικότητας και συναισθηματικής αυτο-έκφρασης. Δημιουργεί συνθήκες ομαδικότητας, επικοινωνίας, συνεργασίας και από κοινού ανάληψης ευθύνης, καλλιεργώντας ενσυναίσθηση, σεβασμό στη διαφορετικότητα, ειρηνική επίλυση συγκρούσεων, αυτοπεποίθηση και δεξιότητες σωματικής και γλωσσικής έκφρασης. Ειδικότερα, επιδιώκει την αναγνώριση και ανάλυση κοινωνικών ζητημάτων, τον σχεδιασμό και την υλοποίηση θεατρικών σκηνών σε ασφαλές πλαίσιο, την παρατήρηση, την κριτική ανάλυση, την παρέμβαση και τη δημοκρατική λήψη αποφάσεων, ενώ προσφέρει στρατηγικές αντιμετώπισης καταπιεστικών καταστάσεων ως «πρόβα για την πραγματική ζωή». Τα αναμενόμενα μαθησιακά αποτελέσματα περιλαμβάνουν γνώσεις για τις αρχές και τις τεχνικές του θεάτρου και τον παιδαγωγικό του ρόλο, δεξιότητες εφαρμογής, αναστοχαστικής αξιολόγησης, συναισθηματική ανάπτυξη και κοινωνική δράση, ώστε οι συμμετέχοντες να αναγνωρίζουν τον ρόλο του πολίτη και να καλλιεργούν ενεργό πολιτειότητα μέσω βιωματικής εμπειρίας. Η παρουσίαση των θεατρικών πράξεων στη σχολική και ευρύτερη κοινότητα αποτελεί σημαντική πτυχή του Ομίλου και εμπεδώνει στους μαθητές το αίσθημα της ικανοποίησης και της υπερηφάνειας για το έργο τους."
       },
       {
-        id: "omilos-10",
-        title: "SEA FOR THE FUTURE – Μικροί Επιστήμονες, Μεγάλα Μυστικά της Θάλασσας!",
-        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
-        type: "omilos",
-        teacher: "Περσεφόνη Φραγκιαδάκη",
-        specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
-        grades: "Α΄ Γυμνασίου",
-        day: "Παρασκευή",
-        room: "Εργ. Φυσικών Επιστημών",
-        image: "images/sea.jpg",
-        code: "—",
-        description: "Μπορούν οι μαθητές να γίνουν μικροί επιστήμονες και να συμβάλουν στην προστασία της θάλασσας;\n\nΣτον Όμιλο «SEA FOR THE FUTURE – Μικροί Επιστήμονες, Μεγάλα Μυστικά της Θάλασσας!», τα παιδιά της Α΄ Γυμνασίου ανακαλύπτουν τον θαλάσσιο κόσμο της Κρήτης και εξερευνούν πώς τα πλαστικά απορρίμματα επηρεάζουν τη θαλάσσια ζωή.\n\nΜέσα από συναρπαστικά πειράματα, ομαδικές αποστολές και έρευνα στην ακτή, θα έχουν την ευκαιρία να συλλέξουν δείγματα θαλασσινού νερού και να τα μελετήσουν στο σχολικό εργαστήριο, με τις απαραίτητες εγκρίσεις.\n\nΠαράλληλα, επιδιώκονται πειραματικές δραστηριότητες στο ΕΚΦΕ Ηρακλείου και συναντήσεις με επιστήμονες, ώστε να γνωρίσουν από κοντά τον κόσμο της έρευνας.\n\nΘα μάθουν να παρατηρούν, να συνεργάζονται, να σκέφτονται κριτικά και να παρουσιάζουν τις ανακαλύψεις τους, καλλιεργώντας δημιουργικότητα, αυτοπεποίθηση και σεβασμό προς το περιβάλλον. Τέλος, θα σχεδιάσουν δικές τους λύσεις για λιγότερα πλαστικά στο σχολείο."
-      },
-      {
-        id: "omilos-11",
-        title: "All'italiana: Όμιλος Ιταλικής Γλώσσας και Κουλτούρας",
-        category: "Ξένες Γλώσσες – Ξένες γλώσσες και πολιτισμός",
-        type: "omilos",
-        teacher: "Μαρία Παπαχατζάκη",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
-        day: "Παρασκευή",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/italiana.jpg",
-        code: "—",
-        description: "Ο όμιλος All'italiana είναι μία πρώτη επαφή με την ιταλική γλώσσα (επίπεδα Α1-Α1+) και τον ιταλικό πολιτισμό και, έτσι, δεν προϋποθέτει κάποια προϋπάρχουσα γνώση της γλώσσας.\n\nΑρχικός στόχος μας είναι οι μαθητές/τριες μας να κατανοούν απλές οδηγίες, σύντομους διαλόγους και βασικά κείμενα· να συστήνονται, να δίνουν προσωπικές πληροφορίες, να περιγράφουν οικογένεια, σχολείο, καθημερινότητα, προτιμήσεις και τόπους· να συμμετέχουν σε σύντομες συναλλαγές· να γράφουν σύντομα μηνύματα και περιγραφές, να αναπτύξουν βασικό λεξιλόγιο και γραμματική.\n\nΟι πολιτισμικοί/παιδαγωγικοί στόχοι μας είναι η γνωριμία με τα ήθη και τα έθιμα της γειτονικής Ιταλίας, η ανάδειξη του γλωσσικού/διαλεκτικού της πλούτου, η σύνδεση-ιστορικά και γλωσσικά-με την Ελλάδα, η καλλιέργεια διαπολιτισμικής επίγνωσης, η ενίσχυση αυτοπεποίθησης, συνεργασίας και δημιουργικότητας. Προβλέπεται-βάσει αρχικού σχεδιασμού-η συνέχεια του ομίλου την επόμενη σχολική χρονιά με στόχο την προετοιμασία για τις εξετάσεις του Κρατικού Πιστοποιητικού Γλωσσομάθειας (επιπέδου Β1-Β2) ή άλλων πιστοποιήσεων."
-      },
-      {
-        id: "omilos-12",
-        title: "Ερμηνεία, εκτέλεση και μουσική πράξη: Ας τζαμάρουμε!",
-        category: "Καλές Τέχνες – Μουσική",
-        type: "omilos",
-        teacher: "Ισίδωρος Παπαδάκης",
-        specialty: "ΠΕ79.01 - ΜΟΥΣΙΚΗΣ ΕΠΙΣΤΗΜΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄, Β΄, Γ΄ Λυκ.",
-        day: "Τρίτη",
-        room: "Αίθουσα μουσικής",
-        image: "images/jamming.jpg",
-        code: "5F5A9",
-        description: "Ο Όμιλος αυτός απευθύνεται σε μαθητές και μαθήτριες που έχουν ήδη εξοικειωθεί με κάποιο μουσικό όργανο και επιθυμούν να βελτιώσουν τις δεξιότητές τους σε αυτό, αλλά και να συνεργαστούν αρμονικά με άλλους μουσικούς και να ωφεληθούν από αυτό."
-      },
-      {
-        id: "omilos-13",
-        title: "«Ανιχνευτές του Αόρατου: Πειράματα, μυστήρια και μικρές επιστημονικές αποστολές... και το CERN μάς περιμένει!»",
-        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
-        type: "omilos",
-        teacher: "Άννα Καραΐσκου",
-        specialty: "ΠΕ04.01 - ΦΥΣΙΚΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
-        day: "Τετάρτη",
-        room: "Εργ. Φυσικών Επιστημών",
-        image: "images/cern.jpg",
-        code: "—",
-        description: "Τι υπάρχει γύρω μας που δεν το βλέπουμε; Στον όμιλο «Ανιχνευτές του Αόρατου» τα παιδιά ανακαλύπτουν πώς οι επιστήμονες μελετούν όσα δεν φαίνονται με το μάτι: τι κρύβεται μέσα στην ύλη, τα κύματα που μεταφέρουν τη φωνή στο ραδιόφωνο και στο κινητό, τα μηνύματα που φτάνουν από το διάστημα. Με απλά πειράματα, κατασκευές και παιχνίδια-γρίφους μαθαίνουν να παρατηρούν, να κάνουν προβλέψεις, να τις ελέγχουν και να βγάζουν συμπεράσματα. Δουλεύουν σε μικρές ομάδες, συζητούν, συνεργάζονται και παρουσιάζουν τη δουλειά τους. Αποκτούν γνώσεις για τον κόσμο γύρω τους, καλλιεργούν την κριτική σκέψη και την ικανότητα να λύνουν προβλήματα, και αναπτύσσουν περιέργεια, επιμονή και το θάρρος να κάνουν λάθη. Στο πλαίσιο του ομίλου σχεδιάζεται εκπαιδευτική επίσκεψη στο CERN, το μεγαλύτερο εργαστήριο φυσικής στον κόσμο, για την οποία θα ακολουθήσει ξεχωριστή ενημέρωση. Η χρονιά κλείνει με μια παρουσίαση των παιδιών για όλη τη σχολική κοινότητα."
-      },
-      {
-        id: "omilos-14",
-        title: '" Μια φορά κι έναν καιρό....στα Γερμανικά"',
-        category: "Ξένες Γλώσσες – Ξένες γλώσσες και πολιτισμός",
-        type: "omilos",
-        teacher: "Μαρία Σεργίου",
-        specialty: "ΠΕ07 - ΓΕΡΜΑΝΙΚΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Τετάρτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/germanika-gymnasio.jpg",
-        code: "77042",
-        description: "Ο όμιλος «Μια φορά κι έναν καιρό... στα Γερμανικά» φέρνει τους μαθητές σε επαφή με τη γερμανική γλώσσα και τον γερμανόφωνο πολιτισμό με ευχάριστο, δημιουργικό και βιωματικό τρόπο. Μέσα από γνωστά παραμύθια των αδελφών Grimm, οι μαθητές θα εξοικειωθούν με το γερμανικό λεξιλόγιο και καθημερινές εκφράσεις. Κάθε παραμύθι θα συνοδεύεται από ειδικά διαμορφωμένο φύλλο εργασίας και σχετικό οπτικοακουστικό υλικό με δραστηριότητες κατανόησης, λεξιλογίου και γλωσσικά παιχνίδια. Οι μαθητές θα δουλέψουν με σύντομα κείμενα, εικόνες και διαλόγους και θα συμμετέχουν σε παιχνίδια ρόλων, παντομίμα, Kahoot, κουίζ, σταυρόλεξα και κρυπτόλεξα. Θα δημιουργήσουν δικά τους κόμικ και διαλόγους και θα δραματοποιήσουν επιλεγμένες σκηνές. Παράλληλα, θα παρακολουθήσουν κατάλληλες γερμανόφωνες ταινίες και θα έρθουν σε επαφή με τον γερμανόφωνο κινηματογράφο. Στόχος είναι η εκμάθηση της γλώσσας μέσα από συνεργασία, δημιουργία, εικόνα, κινηματογράφο, θέατρο και παιχνίδι."
-      },
-      {
-        id: "omilos-15",
+        id: "omilos-grafistiki",
         title: "«Εφαρμοσμένες Τέχνες - Γραφιστική»",
         category: "Καλές Τέχνες - Κινηματογράφος-Φωτογραφία",
         type: "omilos",
-        teacher: "Θεόδωρος Χιωτίδης",
+        teacher: "Χιωτίδης Θεόδωρος",
         specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
         day: "Δευτέρα",
         room: "Εργ. Πληροφορικής",
         image: "images/grafistiki.jpg",
@@ -507,195 +399,127 @@
         description: "Ο όμιλος «Εφαρμοσμένες Τέχνες – Γραφιστική» προσκαλεί τους μαθητές και τις μαθήτριες να γνωρίσουν τη δημιουργική πλευρά της εικόνας και του σχεδιασμού μέσα από ευχάριστες και πρακτικές δραστηριότητες. Οι μαθητές θα πειραματιστούν με το σχέδιο, την εικόνα, το χρώμα, τα γράμματα, τις αφίσες, τα εξώφυλλα και άλλες μορφές οπτικής επικοινωνίας, ενώ θα δημιουργήσουν τις δικές τους πρωτότυπες ιδέες και έργα.\n\nΣκοπός του ομίλου είναι να καλλιεργήσει τη φαντασία, τη δημιουργικότητα και την προσωπική έκφραση, αλλά και να βοηθήσει τους μαθητές να παρατηρούν και να επικοινωνούν ιδέες μέσα από εικόνες. Παράλληλα, θα αναπτύξουν δεξιότητες σχεδιασμού, συνεργασίας, επίλυσης προβλημάτων και παρουσίασης της δουλειάς τους, αποκτώντας μεγαλύτερη αυτοπεποίθηση και θετική στάση απέναντι στη δημιουργική διαδικασία."
       },
       {
-        id: "omilos-16",
-        title: "English Certification Lab - Εργαστήριο Προετοιμασίας για το Κρατικό Πιστοποιητικό Γλωσσομάθειας (ΚΠΓ)",
-        category: "Ξένες Γλώσσες – για απόκτηση πιστοποιητικού γλωσσομάθειας",
-        type: "omilos",
-        teacher: "Ουρανία Κιρκικάκη",
-        specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄, Β΄, Γ΄ Λυκ.",
-        day: "Τετάρτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/english.jpg",
-        code: "—",
-        description: "Ο Όμιλος «English Certification Lab» προσφέρει στους μαθητές και στις μαθήτριες τη δυνατότητα να ενισχύσουν ουσιαστικά τις γνώσεις τους στην Αγγλική Γλώσσα και να προετοιμαστούν συστηματικά για το Κρατικό Πιστοποιητικό Γλωσσομάθειας (ΚΠΓ), έναν επίσημο και αναγνωρισμένο τίτλο πιστοποίησης.\n\nΣε ένα υποστηρικτικό μαθησιακό περιβάλλον, τα παιδιά εξασκούνται στην κατανόηση και χρήση της γλώσσας, αποκτούν εξοικείωση με τις εξετάσεις και λαμβάνουν καθοδήγηση προσαρμοσμένη στις ανάγκες τους. Παράλληλα, καλλιεργούν αυτοπεποίθηση, συνέπεια, συνεργασία και δεξιότητες αυτόνομης μελέτης, πολύτιμες για τη συνολική εκπαιδευτική τους πορεία.\n\nΗ λειτουργία του Ομίλου αναδεικνύει την προστιθέμενη αξία των Δημόσιων Ωνασείων Σχολείων: παρέχει οργανωμένη, ποιοτική και δωρεάν προετοιμασία μέσα στο ίδιο το σχολείο, περιορίζοντας την ανάγκη αναζήτησης αντίστοιχης εξωσχολικής υποστήριξης. Έτσι, η γλωσσική πρόοδος συνδέεται με μια ουσιαστική ευκαιρία πιστοποίησης, προσβάσιμη σε όλους τους συμμετέχοντες."
-      },
-      {
-        id: "omilos-17",
-        title: "BookLab: Από την σελίδα στον ήχο και την οθόνη (Εργαστήρι φιλαναγνωσίας)",
-        category: "Ανθρωπιστικές – Όμιλος Γραμμάτων",
-        type: "omilos",
-        teacher: "Μαρία Παπαχατζάκη",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Πέμπτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/booklab.jpg",
-        code: "—",
-        description: "Το BookLab έχει ως σκοπό την ψυχαγωγική ανάγνωση και την ανακάλυψη/εξερεύνηση των νέων μορφών του λογοτεχνικού βιβλίου (ηλεκτρονικό, ακουστικό, graphic novel/κόμικ). Ως κεντρικό ερώτημα θέτει το πώς αλλάζει η εμπειρία μιας ιστορίας όταν αλλάζει το μέσο μέσα από το οποίο την διαβάζουμε, την ακούμε ή την βλέπουμε. Οι αναγνώστες και οι αναγνώστριες του BookLab θα γνωρίσουν την πληθώρα επιλογών σχετικά με το βιβλίο του σήμερα ώστε να κάνουν συνειδητά τις επιλογές τους ως αναγνώστες και αναγνώστριες του αύριο."
-      },
-      {
-        id: "omilos-18",
-        title: "Όταν τα Μαθηματικά λένε Ιστορίες - Μαθηματική Λογοτεχνία",
-        category: "STEAM – Μαθηματικές Επιστήμες",
-        type: "omilos",
-        teacher: "Ελένη Μηλάκη",
-        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Δευτέρα",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/math-stories.jpg",
-        code: "917C4",
-        description: "Ο Όμιλος αποτελεί μια Λέσχη Ανάγνωσης με αφετηρία το βιβλίο «Καταραμένα Μαθηματικά» του Carlo Frabetti. Μέσα από την ανάγνωση του βιβλίου, οι μαθητές/τριες θα έχουν την ευκαιρία να γνωρίσουν τα Μαθηματικά μέσα από μια διαφορετική, πιο ευχάριστη και δημιουργική οπτική. Η ανάγνωση των κεφαλαίων θα πραγματοποιείται στο σχολείο και θα αποτελεί αφετηρία για συζήτηση, διερεύνηση και δημιουργικές δραστηριότητες. Οι μαθητές/τριες θα γνωρίσουν σημαντικούς μαθηματικούς και επιστήμονες και θα εξερευνήσουν την ιστορία και την εξέλιξη των μαθηματικών ιδεών.\n\nΠαράλληλα, θα ασχοληθούν με γρίφους, προβλήματα και εφαρμογές των Μαθηματικών στην καθημερινή ζωή, την αστρονομία, την τέχνη και άλλες επιστήμες.\n\nΜέσα από ομαδικές και βιωματικές δραστηριότητες θα καλλιεργήσουν την ικανότητα συνεργασίας, την επικοινωνία, την ενεργητική ακρόαση και θα αναπτύξουν διαφορετικούς τρόπους σκέψης και επίλυσης προβλημάτων.\n\nΣτόχος είναι να αντιληφθούν τα Μαθηματικά όχι μόνο ως ένα σχολικό μάθημα αλλά ως έναν τρόπο παρατήρησης, ερμηνείας και κατανόησης του κόσμου."
-      },
-      {
-        id: "omilos-19",
+        id: "omilos-grafi",
         title: "Δημιουργική γραφή",
         category: "Ανθρωπιστικές – Δημιουργική Γραφή",
         type: "omilos",
-        teacher: "Ουρανία Σταμουλάκη",
+        teacher: "Σταμουλάκη Ουρανία",
         specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
         day: "Δευτέρα",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/grafi.jpg",
         code: "A6B2C",
         description: "Ο Όμιλος Δημιουργικής Γραφής προσκαλεί τους μαθητές της Α΄, Β΄ και Γ΄ Γυμνασίου σε ένα δημιουργικό ταξίδι έκφρασης, φαντασίας και ανακάλυψης της λογοτεχνικής γραφής. Σκοπός του ομίλου είναι να απελευθερώσει τη δημιουργική σκέψη των παιδιών, μετατρέποντάς τα από παθητικούς αναγνώστες σε ενεργούς δημιουργούς ιστοριών, ποιημάτων και θεατρικών σκηνών. Μέσα από βιωματικές ασκήσεις, οι μαθητές αποκτούν πολύτιμες δεξιότητες, καθώς εξασκούνται στο χτίσιμο χαρακτήρων, τη διαμόρφωση πλοκής, την περιγραφή συναισθημάτων και τη βελτίωση του γραπτού τους λόγου. Παράλληλα, καλλιεργούν την αυτοπεποίθησή τους, τη συναισθηματική νοημοσύνη, την κριτική σκέψη και την αγάπη για το βιβλίο, αναπτύσσοντας πνεύμα συνεργασίας και ελεύθερης έκφρασης μέσα σε ένα υποστηρικτικό ομαδικό περιβάλλον."
       },
       {
-        id: "omilos-20",
-        title: "Fact Checkers: Ανάλυση δημοσιογραφικού λόγου & σχολική εφημερίδα",
-        category: "Κοινωνικές – Δημοσιογραφία",
-        type: "omilos",
-        teacher: "Στυλιανή Παπαδάκη",
-        specialty: "ΠΕ78 - ΚΟΙΝΩΝΙΚΩΝ ΕΠΙΣΤΗΜΩΝ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Πέμπτη",
-        room: "Αίθουσα τεχνολογίας",
-        image: "images/factcheckers.jpg",
-        code: "—",
-        description: "Στον Όμιλο Δημοσιογραφικού Λόγου καλωσορίζουμε τα παιδιά σε ένα δημιουργικό ταξίδι στον κόσμο της ενημέρωσης, όπου η μάθηση γίνεται βιωματική εμπειρία. Σκοπός μας είναι να καθοδηγήσουμε τους μαθητές ώστε να αναπτύξουν την κριτική τους σκέψη, μαθαίνοντας να αξιολογούν την αξιοπιστία των ειδήσεων και να αναγνωρίζουν την παραπληροφόρηση στο ψηφιακό περιβάλλον.\n\nΜέσα από συνεργατικές δραστηριότητες, τα παιδιά κατανοούν τη διάκριση μεταξύ είδησης και γνώμης, εξοικειώνονται με τη δομή του δημοσιογραφικού λόγου (ρεπορτάζ, συνέντευξη, άρθρο) και καλλιεργούν ουσιαστικές δεξιότητες έρευνας, επικοινωνίας και γραπτής έκφρασης με τη δημιουργία της δικής τους σχολικής εφημερίδας. Παράλληλα, διαμορφώνουν μια υπεύθυνη στάση απέναντι στην πληροφορία, ενισχύοντας την ενεργό πολιτειότητα και την ενσυναίσθηση.\n\nΓια τη συμμετοχή δεν απαιτούνται ειδικές γνώσεις-μόνο περιέργεια, ενθουσιασμός και διάθεση για συνεργασία."
-      },
-      {
-        id: "omilos-21",
-        title: "Ελλάδα χωρίς Σύνορα: Αναζητώντας, ερευνώντας και αναδεικνύοντας τον Ελληνισμό στην Ευρώπη",
-        category: "Ανθρωπιστικές – Ιστορία",
-        type: "omilos",
-        teacher: "Αντιγόνη Ζήση",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄ Γυμνασίου",
-        day: "Παρασκευή",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/ellada.jpg",
-        code: "B169F",
-        description: "Ο προτεινόμενος Όμιλος έχει ως αντικείμενο τη διερεύνηση της ιστορικής και σύγχρονης παρουσίας του ελληνισμού στον ευρωπαϊκό χώρο. Οι μαθητές/τριες θα αναλάβουν ενεργό ρόλο στη μαθησιακή διαδικασία και θα λειτουργήσουν ως μικρές ερευνητικές ομάδες, διερευνώντας ελληνικές κοινότητες, ιστορικά γεγονότα, γλωσσικά στοιχεία, μνημεία, πολιτιστικές πρακτικές και σύγχρονες εκφράσεις της ελληνικής παρουσίας στην Ευρώπη. Ιδιαίτερη έμφαση θα δοθεί στην αξιοποίηση πρωτογενών και δευτερογενών πηγών, στη διεξαγωγή συνεντεύξεων και στην επιτόπια έρευνα. Η δράση δύναται να κορυφωθεί με εκπαιδευτική μετακίνηση σε ευρωπαϊκό προορισμό, ο οποίος θα συνδέεται άμεσα με τη θεματική και τα ερευνητικά ερωτήματα του Ομίλου. Η μετακίνηση θα αποτελεί οργανικό μέρος του εκπαιδευτικού σχεδιασμού και θα προηγείται και θα ακολουθείται από συγκεκριμένες μαθητικές ερευνητικές δραστηριότητες. Στο πλαίσιο της εξωστρέφειας του Ομίλου προβλέπεται η δυνατότητα διαθεματικής συνεργασίας με τον Όμιλο Ιταλικών."
-      },
-      {
-        id: "omilos-22",
-        title: '"Από τον Δομήνικο Θεοτοκόπουλο του Χάνδακα στον El Greco του Τολέδο. Ένας Κρητικός παγκόσμιος καλλιτέχνης"',
-        category: "Καλές Τέχνες – Εικαστικά",
-        type: "omilos",
-        teacher: "Γεώργιος Γουγάκης",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Τρίτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/elgreco.jpg",
-        code: "B6A2D",
-        description: "Ο συγκεκριμένος Όμιλος έχει ως αντικείμενο τη μελέτη της εικαστικής διαδρομής του Δομήνικου Θεοτοκόπουλου, από τον Χάνδακα της Κρήτης έως το Τολέδο της Ισπανίας και την ανάδειξή της πορείας του από Κρητικό ζωγράφο στον παγκόσμιο καλλιτέχνη El Greco. Θα συνεξεταστούν αρκετά αναλυτικά παράμετροι που διαμόρφωσαν την καλλιτεχνική του προσωπικότητα στην Κρήτη, όπως το πολιτισμικό περιβάλλον του Χάνδακα τον 16ο αι., η Κρητική Σχολή, ο Μιχαήλ Δαμασκηνός κλπ."
-      },
-      {
-        id: "omilos-23",
+        id: "omilos-fakos-a",
         title: "Μια φορά κι έναν... φακό (Ομάδα Α)",
         category: "Καλές Τέχνες - Κινηματογράφος-Φωτογραφία",
         type: "omilos",
-        teacher: "Ευθυμία Δήμου",
+        teacher: "Δήμου Ευθυμία",
         specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. κ. Α΄ Λυκ.",
         day: "Δευτέρα",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/fakos-a.jpg",
         code: "B8AAB",
         description: "Είναι ένα εργαστήριο κινηματογραφικής παιδείας και δημιουργίας, όπου οι μαθητές/τριες ανακαλύπτουν τη μαγεία της έβδομης τέχνης, όχι μόνο ως θεατές αλλά και ως δημιουργοί. Μέσα από προβολές, αναλύσεις και βιωματικές δραστηριότητες, αποκτούν βασικές γνώσεις για όλα τα στάδια δημιουργίας μιας ταινίας: από τη σύλληψη της ιδέας και το σενάριο, μέχρι τα γυρίσματα, το μοντάζ και την τελική προβολή. Ο όμιλος θα υλοποιείται παράλληλα σε δύο ομάδες, οι οποίες θα συνεργάζονται και θα ανταλλάσσουν ιδέες σε επιμέρους στάδια της δημιουργικής διαδικασίας, με στόχο την παραγωγή κοινών ή αλληλοσυμπληρούμενων έργων. Στόχος μας είναι να καλλιεργήσουμε τη φαντασία, τη συνεργασία και την αυτοπεποίθησή των μαθητών/-τριών, δίνοντάς τους τα εργαλεία να εκφραστούν μέσα από την εικόνα και τον ήχο, δημιουργώντας τη δική τους ιστορία. Τα παιδιά αποκτούν δεξιότητες ομαδικής εργασίας, κριτικής σκέψης, οργάνωσης χρόνου, δημιουργικής γραφής, υπεύθυνης χρήσης τεχνολογίας και επίλυσης προβλημάτων, ενώ παράλληλα διασκεδάζουν και νιώθουν υπερήφανα για το έργο τους."
       },
       {
-        id: "omilos-24",
+        id: "omilos-fakos-b",
         title: "Μια φορά κι έναν... φακό (Ομάδα Β)",
         category: "Καλές Τέχνες - Κινηματογράφος-Φωτογραφία",
         type: "omilos",
-        teacher: "Αικατερίνη Παπαδάκη",
+        teacher: "Παπαδάκη Αικατερίνη",
         specialty: "ΠΕ05 - ΓΑΛΛΙΚΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. κ. Α΄ Λυκ.",
         day: "Δευτέρα",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/fakos-b.jpg",
         code: "BD507",
         description: "Είναι ένα εργαστήριο κινηματογραφικής παιδείας και δημιουργίας, όπου οι μαθητές/τριες ανακαλύπτουν τη μαγεία της έβδομης τέχνης, όχι μόνο ως θεατές αλλά και ως δημιουργοί. Μέσα από προβολές, αναλύσεις και βιωματικές δραστηριότητες, αποκτούν βασικές γνώσεις για όλα τα στάδια δημιουργίας μιας ταινίας: από τη σύλληψη της ιδέας και το σενάριο, μέχρι τα γυρίσματα, το μοντάζ και την τελική προβολή. Ο όμιλος θα υλοποιείται παράλληλα σε δύο ομάδες, οι οποίες θα συνεργάζονται και θα ανταλλάσσουν ιδέες σε επιμέρους στάδια της δημιουργικής διαδικασίας, με στόχο την παραγωγή κοινών ή αλληλοσυμπληρούμενων έργων. Στόχος μας είναι να καλλιεργήσουμε τη φαντασία, τη συνεργασία και την αυτοπεποίθησή των μαθητών/-τριών, δίνοντάς τους τα εργαλεία να εκφραστούν μέσα από την εικόνα και τον ήχο, δημιουργώντας τη δική τους ιστορία. Τα παιδιά αποκτούν δεξιότητες ομαδικής εργασίας, κριτικής σκέψης, οργάνωσης χρόνου, δημιουργικής γραφής, υπεύθυνης χρήσης τεχνολογίας και επίλυσης προβλημάτων, ενώ παράλληλα διασκεδάζουν και νιώθουν υπερήφανα για το έργο τους."
       },
       {
-        id: "omilos-25",
-        title: "Adopt-a-Spot: Η Γειτονιά & η Θάλασσά μας στα Χέρια μας (Ομάδα Β)",
-        category: "STEAM - Τεχνολογία, Βιωσιμότητα και Περιβαλλοντικός Αντίκτυπος",
-        type: "omilos",
-        teacher: "Ευθυμία Δήμου",
-        specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμν. & Α΄ Λυκ.",
-        day: "Πέμπτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/adopt-b.jpg",
-        code: "—",
-        description: "Ο περιβαλλοντικός όμιλος έχει ως αντικείμενο την ενεργή συμμετοχή των μαθητών και μαθητριών στην προστασία και βελτίωση του περιβάλλοντος, με έμφαση στη γειτονιά του σχολείου και στις ακτές της Κρήτης. Θα υλοποιείται παράλληλα σε δύο ομάδες, οι οποίες θα συνεργάζονται και θα ανταλλάσσουν ιδέες, ενώ θα συμμετέχουν από κοινού στις δράσεις. Μέσα από βιωματικές δράσεις, οι μαθητές θα συμμετάσχουν σε καθαρισμό παραλίας και θα ενημερωθούν για τη θαλάσσια ρύπανση, σε συνεργασία με επιστήμονες και περιβαλλοντικούς φορείς, θα παρατηρήσουν και θα καταγράψουν προβλήματα, θα φροντίσουν το γειτονικό θεατράκι και το πάρκο. Σκοπός του ομίλου είναι να αναπτύξουν οικολογική συνείδηση και να κατανοήσουν ότι με συλλογική δράση μπορούν να συμβάλλουν ουσιαστικά στη βελτίωση του τόπου τους. Παράλληλα, θα καλλιεργήσουν τη συνεργασία, την υπευθυνότητα, τη δημιουργικότητα, την κριτική σκέψη και την επικοινωνία, μαθαίνοντας να προτείνουν λύσεις και να αναλαμβάνουν πρωτοβουλίες ως ενεργοί και ευαισθητοποιημένοι πολίτες."
+        id: "omilos-enisx-arxaia-c",
+        title: "Ενισχυτική Διδασκαλία στα Αρχαία Ελληνικά Γ' Γυμν.",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Γουγάκης Γεώργιος",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Γ΄ Γυμν.",
+        day: "Δευτέρα",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/enisx-arxaia-c.jpg",
+        code: "ΕΝΙΣΧ-03",
+        description: "Υποστήριξη των μαθητών της Γ΄ Γυμνασίου στην Αρχαία Ελληνική Γλώσσα. Κάλυψη κενών προηγούμενων τάξεων, συστηματική επανάληψη γραμματικής-συντακτικού και προετοιμασία για το Λύκειο."
       },
       {
-        id: "omilos-26",
+        id: "omilos-math-stories",
+        title: "Όταν τα Μαθηματικά λένε Ιστορίες - Μαθηματική Λογοτεχνία",
+        category: "STEAM – Μαθηματικές Επιστήμες",
+        type: "omilos",
+        teacher: "Μηλάκη Ελένη",
+        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Δευτέρα",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/math-stories.jpg",
+        code: "917C4",
+        description: "Ο Όμιλος αποτελεί μια Λέσχη Ανάγνωσης με αφετηρία το βιβλίο «Καταραμένα Μαθηματικά» του Carlo Frabetti. Μέσα από την ανάγνωση του βιβλίου, οι μαθητές/τριες θα έχουν την ευκαιρία να γνωρίσουν τα Μαθηματικά μέσα από μια διαφορετική, πιο ευχάριστη και δημιουργική οπτική. Η ανάγνωση των κεφαλαίων θα πραγματοποιείται στο σχολείο και θα αποτελεί αφετηρία για συζήτηση, διερεύνηση και δημιουργικές δραστηριότητες. Οι μαθητές/τριες θα γνωρίσουν σημαντικούς μαθηματικούς και επιστήμονες και θα εξερευνήσουν την ιστορία και την εξέλιξη των μαθηματικών ιδεών.\n\nΠαράλληλα, θα ασχοληθούν με γρίφους, προβλήματα και εφαρμογές των Μαθηματικών στην καθημερινή ζωή, την αστρονομία, την τέχνη και άλλες επιστήμες.\n\nΜέσα από ομαδικές και βιωματικές δραστηριότητες θα καλλιεργήσουν την ικανότητα συνεργασίας, την επικοινωνία, την ενεργητική ακρόαση και θα αναπτύξουν διαφορετικούς τρόπους σκέψης και επίλυσης προβλημάτων.\n\nΣτόχος είναι να αντιληφθούν τα Μαθηματικά όχι μόνο ως ένα σχολικό μάθημα αλλά ως έναν τρόπο παρατήρησης, ερμηνείας και κατανόησης του κόσμου."
+      },
+
+      // === ΤΡΙΤΗ ===
+      {
+        id: "omilos-smart-eco",
+        title: "Smart School: Το Έξυπνο Οικολογικό Σχολείο μας",
+        category: "STEAM – Ρομποτική",
+        type: "omilos",
+        teacher: "Κατζαγιαννάκη Ειρήνη Ηλέκτρα",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Α΄/Β΄ Γυμν.",
+        day: "Τρίτη",
+        room: "Εργ. Πληροφορικής",
+        image: "images/smart-eco.jpg",
+        code: "—",
+        description: "Στον Όμιλο Ρομποτικής \"Smart School: Το Έξυπνο Οικολογικό Σχολείο μας\" οι μαθητές και οι μαθήτριες θα έχουν την ευκαιρία να δημιουργήσουν, να πειραματιστούν και να λύσουν πραγματικά προβλήματα, αξιοποιώντας αισθητήρες, κινητήρες και αυτοματισμούς.\n\nΜέσα από ομαδικά projects θα σχεδιάσουν τις δικές τους έξυπνες εφαρμογές για ένα «Έξυπνο Οικολογικό Σχολείο», όπως έξυπνος φωτισμός, σύστημα εξοικονόμησης ενέργειας, σύστημα ανακύκλωσης και πολλές ακόμη ιδέες που θα προκύψουν από τη φαντασία τους!\n\nΣτόχος μας δεν είναι απλώς να μάθουμε ρομποτική, υπολογιστική σκέψη και προγραμματισμό. Θέλουμε να μάθουμε να σκεφτόμαστε, να δημιουργούμε και να μετατρέπουμε μια ιδέα σε πραγματική κατασκευή!\n\nΟ όμιλός μας θα είναι ένα όμορφο ταξίδι που θα απαιτεί περιέργεια, δημιουργικότητα και διάθεση για συνεργασία, ώστε να προσπαθήσουμε να κάνουμε το σχολείο μας καλύτερο, πιο οικολογικό και πιο έξυπνο!"
+      },
+      {
+        id: "omilos-learning",
         title: "Μαθαίνω πώς να μαθαίνω!",
         category: "Κοινωνικές – Ψυχοκοινωνική Ανάπτυξη",
         type: "omilos",
-        teacher: "Στυλιανή Παπαδάκη",
+        teacher: "Παπαδάκη Στυλιανή",
         specialty: "ΠΕ78 - ΚΟΙΝΩΝΙΚΩΝ ΕΠΙΣΤΗΜΩΝ",
-        grades: "Α΄ Γυμνασίου",
+        grades: "Α΄ Γυμν.",
         day: "Τρίτη",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/learning.jpg",
         code: "D5358",
         description: "Έρευνες για τη μάθηση δείχνουν ότι η πρόοδος στο σχολείο εξαρτάται όχι μόνο από το πόσο διαβάζει ένα παιδί, αλλά και από το πώς μελετά. Αυτόν τον τρόπο τον χτίζουμε μαζί, βήμα βήμα. Στον όμιλό μας, μία φορά την εβδομάδα, τα παιδιά της Α΄ Γυμνασίου δοκιμάζουν απλούς τρόπους μελέτης πάνω στα μαθήματα που ήδη έχουν, σε ένα ζεστό, φιλικό περιβάλλον, χωρίς άγχος και χωρίς βαθμούς. Δεν προχωράμε την ύλη του σχολείου, εξασκούμαστε στο πώς τη μελετάμε. Σκοπός μας είναι να νιώσουν αυτονομία και σιγουριά και θετικά συναισθήματα στη νέα σχολική τους ζωή. Τι θα κερδίσουν: Γνώσεις: πώς λειτουργούν η μνήμη και η προσοχή, πώς οργανώνεται ο χρόνος. Δεξιότητες: σχεδιασμός προγράμματος, σημειώσεις, περιλήψεις, επανάληψη σε διαφορετικές μέρες, αυτοέλεγχος και συνεργασία. Στάσεις: αυτοπεποίθηση, επιμονή και θετική σχέση με τη μάθηση. Στο τέλος, κάθε παιδί θα έχει τον δικό του φάκελο με τις μεθόδους που του ταιριάζουν."
       },
       {
-        id: "omilos-27",
-        title: "«Αθλητισμός, Υγεία και Ηγεσία»",
-        category: "Κοινωνικές – Αθλητισμός",
+        id: "omilos-jamming",
+        title: "Ερμηνεία, εκτέλεση και μουσική πράξη: Ας τζαμάρουμε!",
+        category: "Καλές Τέχνες – Μουσική",
         type: "omilos",
-        teacher: "Γεώργιος Νεονάκης",
-        specialty: "ΠΕ11 - ΦΥΣΙΚΗΣ ΑΓΩΓΗΣ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Παρασκευή",
-        room: "Προαύλιος χώρος",
-        image: "images/athlitismos.jpg",
-        code: "D8A6F",
-        description: "Ο όμιλος συνδυάζει τον αθλητισμό με την επιστήμη, την υγεία, την ηγεσία και την κοινωνική προσφορά. Σκοπός είναι οι μαθητές να κατανοήσουν ότι ο αθλητισμός δεν είναι μόνο η επίδοση, αλλά τρόπος ζωής, συνεργασίας, επιστημονικής σκέψης και κοινωνικής ευθύνης."
+        teacher: "Παπαδάκης Ισίδωρος",
+        specialty: "ΠΕ79.01 - ΜΟΥΣΙΚΗΣ ΕΠΙΣΤΗΜΗΣ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. και Α΄/Β΄/Γ΄ Λυκ.",
+        day: "Τρίτη",
+        room: "Αίθουσα μουσικής",
+        image: "images/jamming.jpg",
+        code: "5F5A9",
+        description: "Ο Όμιλος αυτός απευθύνεται σε μαθητές και μαθήτριες που έχουν ήδη εξοικειωθεί με κάποιο μουσικό όργανο και επιθυμούν να βελτιώσουν τις δεξιότητές τους σε αυτό, αλλά και να συνεργαστούν αρμονικά με άλλους μουσικούς και να ωφεληθούν από αυτό."
       },
       {
-        id: "omilos-28",
-        title: "Art in Motion - Εικόνα, Ήχος και Κίνηση",
-        category: "Καλές Τέχνες - Κινηματογράφος-Φωτογραφία",
-        type: "omilos",
-        teacher: "Θεόδωρος Χιωτίδης",
-        specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Τετάρτη",
-        room: "Εργ. Πληροφορικής",
-        image: "images/artinmotion.jpg",
-        code: "—",
-        description: "Ο όμιλος εισάγει τους μαθητές στον κόσμο του Video Art, μέσα από τη δημιουργία σύντομων οπτικοακουστικών έργων. Οι μαθητές πειραματίζονται με την εικόνα, τον ήχο, την κίνηση και την αφήγηση, γνωρίζοντας βασικές τεχνικές βιντεοσκόπησης και επεξεργασίας. Στόχος είναι η ανάπτυξη της δημιουργικότητας και της προσωπικής καλλιτεχνικής έκφρασης μέσα από τη σύγχρονη ψηφιακή εικόνα."
-      },
-      {
-        id: "omilos-29",
+        id: "omilos-idea-proion",
         title: "ΠΑΙΖΟΝΤΑΣ ΔΗΜΙΟΥΡΓΟΥΜΕ... ΑΠΟ ΤΗΝ ΙΔΕΑ ΣΤΟ ΠΡΟΪΟΝ",
         category: "STEAM – Επιχειρηματικότητα & Καινοτομία",
         type: "omilos",
-        teacher: "Αικατερίνη Βασιλάκη",
+        teacher: "Βασιλάκη Αικατερίνη",
         specialty: "ΠΕ88.05 - ΦΥΣΙΚΟΥ ΠΕΡΙΒΑΛΛΟΝΤΟΣ",
-        grades: "Α΄ Γυμνασίου",
+        grades: "Α΄ Γυμν.",
         day: "Τρίτη",
         room: "Αίθουσα τεχνολογίας",
         image: "images/idea-proion.jpg",
@@ -703,183 +527,199 @@
         description: "Ο Όμιλος «Παίζοντας δημιουργούμε... από την ιδέα στο προϊόν» προσκαλεί τους μαθητές και τις μαθήτριες να μετατρέψουν μια δική τους ιδέα σε ένα πραγματικό προϊόν. Μέσα από παιχνίδια, έρευνα, συζήτηση, σχεδιασμό, κατασκευές και ομαδικές αποστολές, τα παιδιά θα αναζητήσουν ανάγκες της καθημερινής ζωής, θα προτείνουν και θα επιλέξουν μια ιδέα, θα σχεδιάσουν και θα δοκιμάσουν το προϊόν τους και θα οργανώσουν τον τρόπο με τον οποίο αυτό θα μπορούσε να δημιουργηθεί. Στη συνέχεια, θα σχεδιάσουν και θα κατασκευάσουν μια τρισδιάστατη μακέτα του χώρου όπου θα παράγεται το προϊόν τους. Σκοπός του Ομίλου είναι να ενθαρρύνει τη δημιουργικότητα, την πρωτοβουλία και την ενεργό συμμετοχή των μαθητών/τριών. Παράλληλα, τα παιδιά θα αναπτύξουν δεξιότητες συνεργασίας, επικοινωνίας, σχεδιασμού και επίλυσης προβλημάτων, θα μάθουν να δοκιμάζουν και να βελτιώνουν τις ιδέες τους και θα καλλιεργήσουν υπευθυνότητα, αυτοπεποίθηση και σεβασμό στις ιδέες των άλλων."
       },
       {
-        id: "omilos-30",
-        title: "Smart School: Το Έξυπνο Ασφαλές Σχολείο μας",
-        category: "STEAM - Ρομποτική",
-        type: "omilos",
-        teacher: "Ειρήνη Ηλέκτρα Κατζαγιαννάκη",
-        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
-        grades: "Α΄, Β΄ Γυμνασίου",
-        day: "Πέμπτη",
-        room: "Εργ. Πληροφορικής",
-        image: "images/smart-safe.jpg",
-        code: "—",
-        description: "Στον όμιλο ρομποτικής «Smart School: Το Έξυπνο Ασφαλές Σχολείο μας», οι μαθητές και οι μαθήτριες γίνονται μικροί εφευρέτες, μηχανικοί, προγραμματιστές και δημιουργοί του σχολείου του μέλλοντος!\n\nΜε τη βοήθεια αισθητήρων και αυτοματισμών σχεδιάζουν και κατασκευάζουν έξυπνες εφαρμογές που μπορούν να κάνουν τη σχολική ζωή ασφαλέστερη. Δημιουργούν συστήματα ειδοποίησης, έξυπνες λύσεις για τον φωτισμό και πρωτότυπες κατασκευές που ανταποκρίνονται σε πραγματικές ανάγκες του σχολείου.\n\nΔεν ακολουθούν απλώς οδηγίες, αλλά σχεδιάζουν, προγραμματίζουν, δοκιμάζουν και διορθώνουν τις δικές τους ιδέες! Μέσα από πειραματισμό, ομαδική εργασία και δημιουργική επίλυση προβλημάτων, τα παιδιά αναπτύσσουν προγραμματιστικές δεξιότητες, την υπολογιστική και κριτική σκέψη, τη συνεργασία και την αυτοπεποίθησή τους. Δεν μαθαίνουν απλώς τεχνολογία. Αξιοποιούν την τεχνολογία για να δώσουν ζωή στις δικές τους ιδέες!\n\nΟ όμιλος είναι ένα δημιουργικό ταξίδι όπου η τεχνολογία, η ρομποτική και η φαντασία γίνονται εργαλεία για ένα σχολείο πιο ασφαλές και πιο έξυπνο!"
-      },
-      {
-        id: "omilos-31",
-        title: "Ηράκλειο. Μια πόλη σταυροδρόμι ιστορίας και πολιτισμού<<Περιδιαβαίνοντας στις υστεροβυζαντινές και ενετικές εκκλησίες του τόπου μας>>.",
+        id: "omilos-ekklisies",
+        title: 'Ηράκλειο. Μια πόλη σταυροδρόμι ιστορίας και πολιτισμού "Περιδιαβαίνοντας στις υστεροβυζαντινές και ενετικές εκκλησίες του τόπου μας"',
         category: "Ανθρωπιστικές – Ιστορία",
         type: "omilos",
-        teacher: "Μαρία Θεοδωράκη",
+        teacher: "Θεοδωράκη Μαρία",
         specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄ Γυμνασίου",
+        grades: "Α΄/Β΄ Γυμν.",
         day: "Τρίτη",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/ekklisies.jpg",
         code: "EEBA9",
         description: "Μέσα από τον όμιλο οι μαθητές μας θα έχουν την ευκαιρία να γνωρίσουν την ιστορία του τόπου μας με έναν εντελώς διαφορετικό τρόπο. Κεντρικός μας στόχος είναι να ανακαλύψουν τα παιδιά τις σημαντικότερες ιστορικές εκκλησίες του Ηρακλείου, κατανοώντας πώς τα θρησκευτικά μνημεία της πόλης μας αντικατοπτρίζουν την πλούσια παράδοση και τη συνύπαρξη τριών διαφορετικών πολιτισμών. Στο ταξίδι αυτό, οι μαθητές δεν θα είναι απλοί ακροατές καθώς θα γνωρίσουν την τοπική ιστορία και θα μελετήσουν τις ιδιαιτερότητες της βυζαντινής ναοδομίας και της περίφημης Κρητικής Σχολής αγιογραφίας. Θα αναπτύξουν ψηφιακές δεξιότητες καθώς θα μάθουν να συλλέγουν και να αξιολογούν πληροφορίες από βιβλία και το διαδίκτυο. Τέλος, θα εργαστούν σε ομάδες για να σχεδιάσουν και να παρουσιάσουν στη σχολική μας κοινότητα μια δική τους ψηφιακή γκαλερί. Πάνω απ' όλα, επιθυμούμε τα παιδιά να εκτιμήσουν την αξία της συνεργασίας και να αναπτύξουν μια θετική στάση απέναντι στη διαφύλαξη των μνημείων μας, συνειδητοποιώντας ότι η προστασία τους είναι απαραίτητη για τη διατήρηση της ιστορικής κληρονομιάς του Ηρακλείου."
       },
       {
-        id: "omilos-32",
-        title: "Ταξίδι στον κόσμο των Θρησκειών",
-        category: "Ανθρωπιστικές – Ιστορία",
+        id: "omilos-elgreco",
+        title: '"Από τον Δομήνικο Θεοτοκόπουλο του Χάνδακα στον El Greco του Τολέδο. Ένας Κρητικός παγκόσμιος καλλιτέχνης"',
+        category: "Καλές Τέχνες – Εικαστικά",
         type: "omilos",
-        teacher: "Ευαγγελία Χατζάκη",
-        specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
-        grades: "Α΄, Β΄, Γ΄ Γυμνασίου",
-        day: "Παρασκευή",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/thriskeies.jpg",
-        code: "F188B",
-        description: "Έχεις αναρωτηθεί ποτέ τι κοινό έχουν οι άνθρωποι σε διαφορετικές χώρες και τι κάνει κάθε πολιτισμό μοναδικό; Στον Όμιλο «Ένα ταξίδι στον κόσμο των θρησκειών» γινόμαστε εξερευνητές και ανακαλύπτουμε τον συναρπαστικό κόσμο των θρησκευτικών παραδόσεων! Ταξιδεύουμε από χώρα σε χώρα, γνωρίζουμε διαφορετικές θρησκείες, ανακαλύπτουμε σύμβολα, μυστήρια, γιορτές, έθιμα και εντυπωσιακούς χώρους λατρείας. Με οδηγό χάρτες, εικόνες, βίντεο, παιχνίδια γνώσεων και ομαδικές αποστολές, συγκεντρώνουμε στοιχεία και δημιουργούμε το δικό μας «Διαβατήριο των Θρησκειών». Παράλληλα, μαθαίνουμε να αναζητούμε πληροφορίες, να συνεργαζόμαστε, να εκφράζουμε τις απόψεις μας και να εξετάζουμε διαφορετικές οπτικές. Στόχος μας είναι να γνωρίσουμε καλύτερα τον κόσμο, να ανακαλύψουμε ομοιότητες και διαφορές και να κατανοήσουμε γιατί ο σεβασμός στη διαφορετικότητα είναι σημαντικός. Είσαι έτοιμος/η για μια περιπέτεια γνώσης χωρίς σύνορα;"
-      },
-      {
-        id: "omilos-33",
-        title: "Python, Physical Computing και Αυτοματισμοί με micro:bit",
-        category: "STEAM – Επιστήμη υπολογιστών",
-        type: "omilos",
-        teacher: "Σοφία Κασωτάκη",
-        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
-        grades: "Γ΄ Γυμν. & Α΄ Λυκ.",
-        day: "Πέμπτη",
-        room: "Εργ. Πληροφορικής Λυκείου",
-        image: "images/python-microbit.jpg",
-        code: "—",
-        description: "Ο Όμιλος «Python, Physical Computing και Αυτοματισμοί με micro:bit» προσφέρει στους μαθητές/τριες την ευκαιρία να γνωρίσουν τον κόσμο του προγραμματισμού και των σύγχρονων τεχνολογιών μέσα από δημιουργικές και βιωματικές δραστηριότητες. Ξεκινώντας από βασικές έννοιες και χωρίς να απαιτούνται προηγούμενες γνώσεις, οι συμμετέχοντες θα σχεδιάζουν και θα υλοποιούν έξυπνες ψηφιακές κατασκευές που αλληλεπιδρούν με το περιβάλλον τους και ανταποκρίνονται σε πραγματικές ανάγκες της καθημερινής ζωής. Μέσα από την ομαδική εργασία θα καλλιεργήσουν δεξιότητες δημιουργικής και υπολογιστικής σκέψης, επίλυσης προβλημάτων, συνεργασίας και επικοινωνίας, ενώ παράλληλα θα αναπτύξουν θετική στάση απέναντι στην τεχνολογία και την καινοτομία. Ο όμιλος απευθύνεται σε όλους τους μαθητές και όλες τις μαθήτριες, ενθαρρύνοντας τη συμμετοχή και την ισότιμη έκφραση όλων. Τα έργα των ομάδων θα παρουσιαστούν στην εκδήλωση διάχυσης των αποτελεσμάτων των Ομίλων της σχολικής μονάδας, η οποία θα πραγματοποιηθεί στο τέλος της σχολικής χρονιάς."
-      },
-      {
-        id: "omilos-34",
-        title: "Digital Citizens: Υπολογιστική Σκέψη, Ψηφιακές Δεξιότητες και Τεχνητή Νοημοσύνη με βάση το DigComp 3.0",
-        category: "STEAM – Επιστήμη Υπολογιστών & AI",
-        type: "omilos",
-        teacher: "Σοφία Κασωτάκη",
-        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
-        grades: "Γ΄ Γυμν. & Α΄ Λυκ.",
-        day: "Παρασκευή",
-        room: "Εργ. Πληροφορικής Λυκείου",
-        image: "images/digital-citizens.jpg",
-        code: "D6337",
-        description: "Καλλιέργεια υπολογιστικής σκέψης, εξοικείωση με βασικές αρχές Τεχνητής Νοημοσύνης (AI) και ενίσχυση των ψηφιακών δεξιοτήτων των μαθητών με βάση το ευρωπαϊκό πλαίσιο DigComp 3.0."
+        teacher: "Γουγάκης Γεώργιος",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Τρίτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/elgreco.jpg",
+        code: "B6A2D",
+        description: "Ο συγκεκριμένος Όμιλος έχει ως αντικείμενο τη μελέτη της εικαστικής διαδρομής του Δομήνικου Θεοτοκόπουλου, από τον Χάνδακα της Κρήτης έως το Τολέδο της Ισπανίας και την ανάδειξή της πορείας του από Κρητικό ζωγράφο στον παγκόσμιο καλλιτέχνη El Greco. Θα συνεξεταστούν αρκετά αναλυτικά παράμετροι που διαμόρφωσαν την καλλιτεχνική του προσωπικότητα στην Κρήτη, όπως το πολιτισμικό περιβάλλον του Χάνδακα τον 16ο αι., η Κρητική Σχολή, ο Μιχαήλ Δαμασκηνός κλπ."
       },
 
-      // Ενισχυτική Διδασκαλία
+      // === ΤΕΤΑΡΤΗ ===
       {
-        id: "enisx-1",
-        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα της Α΄ Γυμνασίου",
-        category: "Ενισχυτική Διδασκαλία",
-        type: "enischytiki",
-        teacher: "Αντιγόνη Ζήση",
+        id: "omilos-rhtoriki",
+        title: '"Η δύναμή σου, το επιχείρημά σου!"',
+        category: "Ανθρωπιστικές - Επιχειρηματολογία-Ρητορική",
+        type: "omilos",
+        teacher: "Λουμπάκη Ελένη",
         specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄ Γυμνασίου",
-        day: "Δευτέρα",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/enisx-glwssa-a1.jpg",
-        code: "ΕΝΙΣΧ-01",
-        description: "Στοχευμένη υποστήριξη για την κάλυψη μαθησιακών κενών, την εμπέδωση γραμματικών και συντακτικών φαινομένων και τη βελτίωση της γραπτής έκφρασης στη Νεοελληνική Γλώσσα της Α΄ Γυμνασίου."
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Τετάρτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/rhtoriki.jpg",
+        code: "—",
+        description: "Ο όμιλος ρητορικής «Η δύναμή σου, το επιχείρημά σου» δίνει στους μαθητές και στις μαθήτριες την ευκαιρία να ανακαλύψουν τη δύναμη του προφορικού λόγου και να εκφράζουν με σαφήνεια τις σκέψεις, τις απόψεις και τα συναισθήματά τους. Μέσα από ευχάριστες δραστηριότητες, συζητήσεις, παιχνίδια λόγου και μικρές παρουσιάσεις, τα παιδιά θα μάθουν να ακούν προσεκτικά τα λόγια των άλλων, να οργανώνουν τις ιδέες τους και να υποστηρίζουν τη γνώμη τους με κατάλληλους λόγους και παραδείγματα. Παράλληλα, θα ενισχύσουν την αυτοπεποίθησή τους, τη συνεργατικότητά τους και τον σεβασμό τους στις διαφορετικές απόψεις. Στόχος είναι να αποκτήσουν μεγαλύτερη άνεση στην επικοινωνία, να συμμετέχουν ενεργά σε συζητήσεις και να μιλούν με αυτοπεποίθηση. Έτσι, μέσα από τον όμιλο αυτό θα καλλιεργήσουν τη διάθεση για ουσιαστικό διάλογο, ενώ μέσα από όλες τις διαδικασίες θα κερδίσουν σε ωριμότητα, αυτοέλεγχο, αυτοβελτίωση και ενσυναίσθηση. Επιστέγασμα όλων των προσπαθειών τους θα είναι η συμμετοχή σε διασχολικό διαγωνισμό Ρητορικής, που πραγματοποιείται στο Ρέθυμνο σε συνεργασία με τη Φιλοσοφική Σχολή του Πανεπιστημίου Κρήτης."
       },
       {
-        id: "enisx-2",
-        title: '"Το εργαστήρι της αρχαίας ελληνικής γλώσσας"',
-        category: "Ενισχυτική Διδασκαλία",
-        type: "enischytiki",
-        teacher: "Ελένη Λουμπάκη",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Β΄ Γυμνασίου",
-        day: "Δευτέρα",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/enisx-arxaia-b.jpg",
-        code: "ΕΝΙΣΧ-02",
-        description: "Ενισχυτική διδασκαλία στα Αρχαία Ελληνικά της Β΄ Γυμνασίου. Εμπέδωση βασικών γραμματικών κανόνων, συντακτικής ανάλυσης και εξοικείωση με τη μετάφραση και ερμηνεία κειμένων."
-      },
-      {
-        id: "enisx-3",
-        title: "Ενισχυτική Διδασκαλία στα Αρχαία Ελληνικά Γ΄ Γυμνασίου",
-        category: "Ενισχυτική Διδασκαλία",
-        type: "enischytiki",
-        teacher: "Γεώργιος Γουγάκης",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Γ΄ Γυμνασίου",
-        day: "Δευτέρα",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/enisx-arxaia-c.jpg",
-        code: "ΕΝΙΣΧ-03",
-        description: "Υποστήριξη των μαθητών της Γ΄ Γυμνασίου στην Αρχαία Ελληνική Γλώσσα. Κάλυψη κενών προηγούμενων τάξεων, συστηματική επανάληψη γραμματικής-συντακτικού και προετοιμασία για το Λύκειο."
-      },
-      {
-        id: "enisx-4",
-        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα & Λογοτεχνία Γ΄ Γυμνασίου: «Γλώσσα & Έκφραση – Υποστήριξη Μαθησιακών Αναγκών»",
-        category: "Ενισχυτική Διδασκαλία",
-        type: "enischytiki",
-        teacher: "Ουρανία Σταμουλάκη",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Γ΄ Γυμνασίου",
-        day: "Τρίτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/enisx-glwssa-c.jpg",
-        code: "ΕΝΙΣΧ-04",
-        description: "Εξειδικευμένη υποστήριξη μαθησιακών αναγκών στη Νεοελληνική Γλώσσα και Λογοτεχνία της Γ΄ Γυμνασίου. Ενίσχυση δεξιοτήτων κατανόησης κειμένου, δομής παραγράφου και ανάπτυξης επιχειρηματολογίας."
-      },
-      {
-        id: "enisx-5",
-        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα της Β΄ Γυμνασίου",
-        category: "Ενισχυτική Διδασκαλία",
-        type: "enischytiki",
-        teacher: "Καλλιόπη Ζερβάκη",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Β΄ Γυμνασίου",
-        day: "Τρίτη",
-        room: "Αιθ. διδασκαλίας",
-        image: "images/enisx-glwssa-b.jpg",
-        code: "ΕΝΙΣΧ-05",
-        description: "Ενισχυτική διδασκαλία για τη βελτίωση της επίδοσης στη Νεοελληνική Γλώσσα της Β΄ Γυμνασίου, με έμφαση στην κατανόηση κειμένων και στην ορθή χρήση γραμματικής και συντακτικού."
-      },
-      {
-        id: "enisx-6",
-        title: "Ενισχυτική Διδασκαλία Μαθηματικών Α΄ Γυμνασίου / Μαθηματικά Plus",
-        category: "Ενισχυτική Διδασκαλία",
-        type: "enischytiki",
-        teacher: "Αρετή Σταυροπούλου",
-        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
-        grades: "Α΄ Γυμνασίου",
+        id: "omilos-neuroquest",
+        title: "NeuroQuest. Εξερευνώντας τα μυστήρια του εγκεφάλου",
+        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
+        type: "omilos",
+        teacher: "Σαββάκη Μαρία",
+        specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
         day: "Τετάρτη",
         room: "Αιθ. διδασκαλίας",
+        image: "images/neuroquest.jpg",
+        code: "—",
+        description: "Ο Όμιλος Νευροεπιστημών «NeuroQuest_Εξερευνώντας τα μυστήρια του εγκεφάλου» προσφέρει στους μαθητές την ευκαιρία να γνωρίσουν τον ανθρώπινο εγκέφαλο μέσα από βιωματικές δραστηριότητες, πειράματα, συνεργατική μάθηση και δημιουργική επίλυση προβλημάτων. Οι μαθητές διερευνούν βασικές έννοιες της νευροεπιστήμης, όπως η μνήμη, η προσοχή, η μάθηση, τα συναισθήματα και η νευροπλαστικότητα, αξιοποιώντας σύγχρονες εκπαιδευτικές πρακτικές με τη συμβολή εξειδικευμένων ακαδημαϊκών και κλινικών προσκεκλημένων ειδικοτήτων. Παράλληλα, εργάζονται σε ομάδες για να σχεδιάσουν, να αναπτύξουν και να δοκιμάσουν το δικό τους εκπαιδευτικό επιτραπέζιο παιχνίδι, μετατρέποντας τη γνώση σε δημιουργία. Μέσα από τη διαδικασία αυτή καλλιεργούν δεξιότητες συνεργασίας, κριτικής σκέψης, επικοινωνίας, δημιουργικότητας και επιστημονικού εγγραμματισμού. Ο όμιλος ολοκληρώνεται με την παρουσίαση του τελικού παιχνιδιού και των αποτελεσμάτων της εργασίας τους, αναδεικνύοντας τη σύνδεση της επιστήμης με την καθημερινή ζωή και τη χαρά της ανακαλυπτικής μάθησης."
+      },
+      {
+        id: "omilos-enisx-math-a",
+        title: "Ενισχυτική Διδασκαλία Μαθηματικών Α΄ Γυμν. / Μαθηματικά Plus",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Σταυροπούλου Αρετή",
+        specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
+        grades: "Α΄ Γυμν.",
+        day: "Τετάρτη",
+        room: "Αιθ.διδασκαλίας",
         image: "images/enisx-math-a.jpg",
         code: "ΕΝΙΣΧ-06",
         description: "Ενισχυτική διδασκαλία Μαθηματικών Α΄ Γυμνασίου. Ομαλή μετάβαση από το Δημοτικό στο Γυμνάσιο, εμπέδωση βασικών εννοιών (κλάσματα, εξισώσεις, γεωμετρία) και επίλυση αποριών χωρίς άγχος."
       },
       {
-        id: "enisx-7",
-        title: "Κατανοώ, Εφαρμόζω, Ερμηνεύω: Ενισχυτική Διδασκαλία Φυσικής Β΄ Γυμνασίου",
+        id: "omilos-minoiki",
+        title: "Η καθημερινή ζωή στη Μινωική Κρήτη",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Σακελλάρης Κωνσταντίνος",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμν.",
+        day: "Τετάρτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/minoiki.jpg",
+        code: "33608",
+        description: "Αντικείμενο έρευνας είναι η καθημερινή ζωή στη Μινωική Κρήτη και συγκεκριμένα σκοπός είναι οι μαθητές/τριες, με βάση τα ενδιαφέροντά τους συνεργαζόμενοι σε ομάδες εργασίας, να διερευνήσουν θέματα του καθημερινού βίου και του πολιτισμού στα μινωικά χρόνια, όπως: η θέση και ο ρόλος της γυναίκας στη μινωική κοινωνία, η μινωική θρησκεία, η μινωική αρχιτεκτονική και η κατοικία, το μινωικό ένδυμα και κόσμημα, η υπόδηση, η κόμμωση και ο καλλωπισμός, η διατροφή και η ευεξία, η άθληση και η ψυχαγωγία στη Μινωική Κρήτη, οι σχέσεις των Μινωιτών με άλλους λαούς. Το αντικείμενο άπτεται της τοπικής ιστορίας του Ηρακλείου και της Κρήτης ενώ συγχρόνως σχετίζεται με το πρόγραμμα σπουδών της αρχαίας ιστορίας στην Α΄ Γυμνασίου. Οι μαθητές/ τριες υλοποιώντας ερευνητικές εργασίες αποκομίζουν γνώσεις που σχετίζονται με την ιστορία του τόπου τους, αναπτύσσουν θετική στάση απέναντι στην ιστορική έρευνα και μαθαίνουν πως να μαθαίνουν. Επίσης οι μαθητές/τριες μπορεί, εφόσον το επιλέξουν, να ασκηθούν σε μεθόδους ποσοτικής και ποιοτικής έρευνας πεδίου/ Στο πλαίσιο αυτόοι μαθητές/ τριες θα μπορούσαν ενδεχομένως να διερευνήσουν δειγματοληπτικά την εικόνα που έχει διαμορφώσει ο μέσος μαθητής κι ο μέσος πολίτης του τόπου τους για θέματα του μινωικού πολιτισμού, καθώς επίσης να ασκηθούν στην ημιδομημένη συνέντευξη με εξειδικευμένους πάνω στο μινωικό πολιτισμό επιστήμονες."
+      },
+      {
+        id: "omilos-cern",
+        title: "«Ανιχνευτές του Αόρατου: Πειράματα, μυστήρια και μικρές επιστημονικές αποστολές... και το CERN μας περιμένει!»",
+        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
+        type: "omilos",
+        teacher: "Καραΐσκου Άννα",
+        specialty: "ΠΕ04.01 - ΦΥΣΙΚΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. κ. Α΄ Λυκ.",
+        day: "Τετάρτη",
+        room: "Εργ. Φυσικών Επιστημών",
+        image: "images/cern.jpg",
+        code: "—",
+        description: "Τι υπάρχει γύρω μας που δεν το βλέπουμε; Στον όμιλο «Ανιχνευτές του Αόρατου» τα παιδιά ανακαλύπτουν πώς οι επιστήμονες μελετούν όσα δεν φαίνονται με το μάτι: τι κρύβεται μέσα στην ύλη, τα κύματα που μεταφέρουν τη φωνή στο ραδιόφωνο και στο κινητό, τα μηνύματα που φτάνουν από το διάστημα. Με απλά πειράματα, κατασκευές και παιχνίδια-γρίφους μαθαίνουν να παρατηρούν, να κάνουν προβλέψεις, να τις ελέγχουν και να βγάζουν συμπεράσματα. Δουλεύουν σε μικρές ομάδες, συζητούν, συνεργάζονται και παρουσιάζουν τη δουλειά τους. Αποκτούν γνώσεις για τον κόσμο γύρω τους, καλλιεργούν την κριτική σκέψη και την ικανότητα να λύνουν προβλήματα, και αναπτύσσουν περιέργεια, επιμονή και το θάρρος να κάνουν λάθη. Στο πλαίσιο του ομίλου σχεδιάζεται εκπαιδευτική επίσκεψη στο CERN, το μεγαλύτερο εργαστήριο φυσικής στον κόσμο, για την οποία θα ακολουθήσει ξεχωριστή ενημέρωση. Η χρονιά κλείνει με μια παρουσίαση των παιδιών για όλη τη σχολική κοινότητα."
+      },
+      {
+        id: "omilos-germanika",
+        title: '"Μια φορά κι έναν καιρό....στα Γερμανικά"',
+        category: "Ξένες Γλώσσες – Ξένες γλώσσες και πολιτισμός",
+        type: "omilos",
+        teacher: "Σεργίου Μαρία",
+        specialty: "ΠΕ07 - ΓΕΡΜΑΝΙΚΗΣ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Τετάρτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/germanika-gymnasio.jpg",
+        code: "77042",
+        description: "Ο όμιλος «Μια φορά κι έναν καιρό... στα Γερμανικά» φέρνει τους μαθητές σε επαφή με τη γερμανική γλώσσα και τον γερμανόφωνο πολιτισμό με ευχάριστο, δημιουργικό και βιωματικό τρόπο. Μέσα από γνωστά παραμύθια των αδελφών Grimm, οι μαθητές θα εξοικειωθούν με το γερμανικό λεξιλόγιο και καθημερινές εκφράσεις. Κάθε παραμύθι θα συνοδεύεται από ειδικά διαμορφωμένο φύλλο εργασίας και σχετικό οπτικοακουστικό υλικό με δραστηριότητες κατανόησης, λεξιλογίου και γλωσσικά παιχνίδια. Οι μαθητές θα δουλέψουν με σύντομα κείμενα, εικόνες και διαλόγους και θα συμμετέχουν σε παιχνίδια ρόλων, παντομίμα, Kahoot, κουίζ, σταυρόλεξα και κρυπτόλεξα. Θα δημιουργήσουν δικά τους κόμικ και διαλόγους και θα δραματοποιήσουν επιλεγμένες σκηνές. Παράλληλα, θα παρακολουθήσουν κατάλληλες γερμανόφωνες ταινίες και θα έρθουν σε επαφή με τον γερμανόφωνο κινηματογράφο. Στόχος είναι η εκμάθηση της γλώσσας μέσα από συνεργασία, δημιουργία, εικόνα, κινηματογράφο, θέατρο και παιχνίδι."
+      },
+      {
+        id: "omilos-english",
+        title: "English Certification Lab - Εργαστήριο Προετοιμασίας για το ΚΠΓ",
+        category: "Ξένες Γλώσσες – για απόκτηση πιστοποιητικού γλωσσομάθειας",
+        type: "omilos",
+        teacher: "Κιρκικάκη Ουρανία",
+        specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. και Α΄/Β΄/Γ΄ Λυκ.",
+        day: "Τετάρτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/english.jpg",
+        code: "—",
+        description: "Ο Όμιλος «English Certification Lab» προσφέρει στους μαθητές και στις μαθήτριες τη δυνατότητα να ενισχύσουν ουσιαστικά τις γνώσεις τους στην Αγγλική Γλώσσα και να προετοιμαστούν συστηματικά για το Κρατικό Πιστοποιητικό Γλωσσομάθειας (ΚΠΓ), έναν επίσημο και αναγνωρισμένο τίτλο πιστοποίησης.\n\nΣε ένα υποστηρικτικό μαθησιακό περιβάλλον, τα παιδιά εξασκούνται στην κατανόηση και χρήση της γλώσσας, αποκτούν εξοικείωση με τις εξετάσεις και λαμβάνουν καθοδήγηση προσαρμοσμένη στις ανάγκες τους. Παράλληλα, καλλιεργούν αυτοπεποίθηση, συνέπεια, συνεργασία και δεξιότητες αυτόνομης μελέτης, πολύτιμες για τη συνολική εκπαιδευτική τους πορεία.\n\nΗ λειτουργία του Ομίλου αναδεικνύει την προστιθέμενη αξία των Δημόσιων Ωνασείων Σχολείων: παρέχει οργανωμένη, ποιοτική και δωρεάν προετοιμασία μέσα στο ίδιο το σχολείο, περιορίζοντας την ανάγκη αναζήτησης αντίστοιχης εξωσχολικής υποστήριξης. Έτσι, η γλωσσική πρόοδος συνδέεται με μια ουσιαστική ευκαιρία πιστοποίησης, προσβάσιμη σε όλους τους συμμετέχοντες."
+      },
+      {
+        id: "omilos-enisx-glwssa-c",
+        title: "Όμιλος Ενισχυτικής Διδασκαλίας στη Νεοελληνική Γλώσσα & Λογοτεχνία Γ΄ Γυμν. : «Γλώσσα & Έκφραση - Υποστήριξη Μαθησιακών Αναγκών»",
         category: "Ενισχυτική Διδασκαλία",
         type: "enischytiki",
-        teacher: "Περσεφόνη Φραγκιαδάκη",
+        teacher: "Σταμουλάκη Ουρανία",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Γ΄ Γυμν.",
+        day: "Τετάρτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/enisx-glwssa-c.jpg",
+        code: "ΕΝΙΣΧ-04",
+        description: "Εξειδικευμένη υποστήριξη μαθησιακών αναγκών στη Νεοελληνική Γλώσσα και Λογοτεχνία της Γ΄ Γυμνασίου. Ενίσχυση δεξιοτήτων κατανόησης κειμένου, δομής παραγράφου και ανάπτυξης επιχειρηματολογίας."
+      },
+      {
+        id: "omilos-enisx-glwssa-b",
+        title: "Εν.Διδ.στη Νεοελληνική Γλώσσα της Β΄ Γυμν.",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Ζερβάκη Καλλιόπη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Β΄ Γυμν.",
+        day: "Τετάρτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/enisx-glwssa-b.jpg",
+        code: "ΕΝΙΣΧ-05",
+        description: "Ενισχυτική διδασκαλία για τη βελτίωση της επίδοσης στη Νεοελληνική Γλώσσα της Β΄ Γυμνασίου, με έμφαση στην κατανόηση κειμένων και στην ορθή χρήση γραμματικής και συντακτικού."
+      },
+      {
+        id: "omilos-artinmotion",
+        title: "Art in Motion - Εικόνα, Ήχος και Κίνηση",
+        category: "Καλές Τέχνες - Κινηματογράφος-Φωτογραφία",
+        type: "omilos",
+        teacher: "Χιωτίδης Θεόδωρος",
+        specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Τετάρτη",
+        room: "Εργ. Πληροφορικής",
+        image: "images/artinmotion.jpg",
+        code: "—",
+        description: "Ο όμιλος εισάγει τους μαθητές στον κόσμο του Video Art, μέσα από τη δημιουργία σύντομων οπτικοακουστικών έργων. Οι μαθητές πειραματίζονται με την εικόνα, τον ήχο, την κίνηση και την αφήγηση, γνωρίζοντας βασικές τεχνικές βιντεοσκόπησης και επεξεργασίας. Στόχος είναι η ανάπτυξη της δημιουργικότητας και της προσωπικής καλλιτεχνικής έκφρασης μέσα από τη σύγχρονη ψηφιακή εικόνα."
+      },
+
+      // === ΠΕΜΠΤΗ ===
+      {
+        id: "omilos-enisx-fysiki-b",
+        title: "Κατανοώ, Εφαρμόζω, Ερμηνεύω: Ενισχυτική Διδασκαλία Φυσικής Β΄ Γυμν.",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Φραγκιαδάκη Περσεφόνη",
         specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
-        grades: "Β΄ Γυμνασίου",
+        grades: "Β΄ Γυμν.",
         day: "Πέμπτη",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/enisx-fysiki-b.jpg",
         code: "ΕΝΙΣΧ-07",
         description: "Ενίσχυση στην κατανόηση των νόμων και των φαινομένων της Φυσικής Β΄ Γυμνασίου. Μεθοδολογία επίλυσης ασκήσεων, ερμηνεία διαγραμμάτων και πρακτική εφαρμογή των τύπων."
       },
       {
-        id: "enisx-8",
-        title: "Ενισχυτική Διδασκαλία στην Αρχαία Ελληνική Γλώσσα (Α΄ Γυμνασίου)",
+        id: "omilos-enisx-arxaia-a",
+        title: "Ενισχυτική Διδασκαλία στην Αρχαία Ελληνική Γλώσσα Α΄ Γυμν.",
         category: "Ενισχυτική Διδασκαλία",
         type: "enischytiki",
-        teacher: "Κωνσταντίνος Σακελλάρης",
+        teacher: "Σακελλάρης Κωνσταντίνος",
         specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄ Γυμνασίου",
+        grades: "Α΄ Γυμν.",
         day: "Πέμπτη",
         room: "Αιθ. διδασκαλίας",
         image: "images/enisx-arxaia-a.jpg",
@@ -887,51 +727,264 @@
         description: "Συστηματική καθοδήγηση για τους μαθητές της Α΄ Γυμνασίου στην πρώτη τους επαφή με τα Αρχαία Ελληνικά: βασική κλίση ονομάτων, ρημάτων και βασικοί συντακτικοί ρόλοι."
       },
       {
-        id: "enisx-9",
-        title: "ΕΝΙΣΧΥΤΙΚΗ ΔΙΔΑΣΚΑΛΙΑ ΜΑΘΗΜΑΤΙΚΩΝ Γ΄ ΓΥΜΝΑΣΙΟΥ",
+        id: "omilos-adopt-a",
+        title: "Adopt-a-Spot: Η Γειτονιά & η Θάλασσά μας στα Χέρια μας (ομάδα Α)",
+        category: "STEAM – Τεχνολογία, Βιωσιμότητα και Περιβαλλοντικός Αντίκτυπος",
+        type: "omilos",
+        teacher: "Παπαδάκη Αικατερίνη",
+        specialty: "ΠΕ05 - ΓΑΛΛΙΚΗΣ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. κ. Α΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/adopt-a.jpg",
+        code: "—",
+        description: "Ο περιβαλλοντικός όμιλος έχει ως αντικείμενο την ενεργή συμμετοχή των μαθητών και μαθητριών στην προστασία και βελτίωση του περιβάλλοντος, με έμφαση στη γειτονιά του σχολείου και στις ακτές της Κρήτης. Θα υλοποιείται παράλληλα σε δύο ομάδες, οι οποίες θα συνεργάζονται και θα ανταλλάσσουν ιδέες, ενώ θα συμμετέχουν από κοινού στις δράσεις. Μέσα από βιωματικές δράσεις, οι μαθητές θα συμμετάσχουν σε καθαρισμό παραλίας και θα ενημερωθούν για τη θαλάσσια ρύπανση, σε συνεργασία με επιστήμονες και περιβαλλοντικούς φορείς, θα παρατηρήσουν και θα καταγράψουν προβλήματα, θα φροντίσουν το γειτονικό θεατράκι και το πάρκο. Σκοπός του ομίλου είναι να αναπτύξουν οικολογική συνείδηση και να κατανοήσουν ότι με συλλογική δράση μπορούν να συμβάλλουν ουσιαστικά στη βελτίωση του τόπου τους. Παράλληλα, θα καλλιεργήσουν τη συνεργασία, την υπευθυνότητα, τη δημιουργικότητα, την κριτική σκέψη και την επικοινωνία, μαθαίνοντας να προτείνουν λύσεις και να αναλαμβάνουν πρωτοβουλίες ως ενεργοί και ευαισθητοποιημένοι πολίτες."
+      },
+      {
+        id: "omilos-adopt-b",
+        title: "Adopt-a-Spot: Η Γειτονιά & η Θάλασσά μας στα Χέρια μας (ομάδα Β)",
+        category: "STEAM - Τεχνολογία, Βιωσιμότητα και Περιβαλλοντικός Αντίκτυπος",
+        type: "omilos",
+        teacher: "Δήμου Ευθυμία",
+        specialty: "ΠΕ06 - ΑΓΓΛΙΚΗΣ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. κ. Α΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Αιθ. διδασκαλίας",
+        image: "images/adopt-b.jpg",
+        code: "—",
+        description: "Ο περιβαλλοντικός όμιλος έχει ως αντικείμενο την ενεργή συμμετοχή των μαθητών και μαθητριών στην προστασία και βελτίωση του περιβάλλοντος, με έμφαση στη γειτονιά του σχολείου και στις ακτές της Κρήτης. Θα υλοποιείται παράλληλα σε δύο ομάδες, οι οποίες θα συνεργάζονται και θα ανταλλάσσουν ιδέες, ενώ θα συμμετέχουν από κοινού στις δράσεις. Μέσα από βιωματικές δράσεις, οι μαθητές θα συμμετάσχουν σε καθαρισμό παραλίας και θα ενημερωθούν για τη θαλάσσια ρύπανση, σε συνεργασία με επιστήμονες και περιβαλλοντικούς φορείς, θα παρατηρήσουν και θα καταγράψουν προβλήματα, θα φροντίσουν το γειτονικό θεατράκι και το πάρκο. Σκοπός του ομίλου είναι να αναπτύξουν οικολογική συνείδηση και να κατανοήσουν ότι με συλλογική δράση μπορούν να συμβάλλουν ουσιαστικά στη βελτίωση του τόπου τους. Παράλληλα, θα καλλιεργήσουν τη συνεργασία, την υπευθυνότητα, τη δημιουργικότητα, την κριτική σκέψη και την επικοινωνία, μαθαίνοντας να προτείνουν λύσεις και να αναλαμβάνουν πρωτοβουλίες ως ενεργοί και ευαισθητοποιημένοι πολίτες."
+      },
+      {
+        id: "omilos-gynaika",
+        title: "Η θέση της γυναίκας στις θρησκείες",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Χατζάκη Ευαγγελία",
+        specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Πέμπτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/gynaika.jpg",
+        code: "—",
+        description: "Ένα δημιουργικό ταξίδι στον κόσμο των θρησκειών, με επίκεντρο τη θέση, τον ρόλο και την παρουσία της γυναίκας σε διαφορετικές θρησκευτικές παραδόσεις και ιστορικές περιόδους. Μέσα από ιστορίες σημαντικών γυναικείων μορφών, εικόνες, κείμενα, ομαδικές δραστηριότητες και συγκριτική προσέγγιση, οι μαθητές θα ανακαλύψουν διαφορετικές αντιλήψεις και πολιτισμούς, καλλιεργώντας την κριτική σκέψη, τον διάλογο και τον σεβασμό στη διαφορετικότητα."
+      },
+      {
+        id: "omilos-booklab",
+        title: "BookLab: Από την σελίδα στον ήχο και την οθόνη (Εργαστήρι φιλαναγνωσίας)",
+        category: "Ανθρωπιστικές – Όμιλος Γραμμάτων",
+        type: "omilos",
+        teacher: "Παπαχατζάκη Μαρία",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Πέμπτη",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/booklab.jpg",
+        code: "—",
+        description: "Το BookLab έχει ως σκοπό την ψυχαγωγική ανάγνωση και την ανακάλυψη/εξερεύνηση των νέων μορφών του λογοτεχνικού βιβλίου (ηλεκτρονικό, ακουστικό, graphic novel/κόμικ). Ως κεντρικό ερώτημα θέτει το πώς αλλάζει η εμπειρία μιας ιστορίας όταν αλλάζει το μέσο μέσα από το οποίο την διαβάζουμε, την ακούμε ή την βλέπουμε. Οι αναγνώστες και οι αναγνώστριες του BookLab θα γνωρίσουν την πληθώρα επιλογών σχετικά με το βιβλίο του σήμερα ώστε να κάνουν συνειδητά τις επιλογές τους ως αναγνώστες και αναγνώστριες του αύριο."
+      },
+      {
+        id: "omilos-factcheckers",
+        title: "Fact Checkers: Ανάλυση δημοσιογραφικού λόγου & σχολική εφημερίδα",
+        category: "Κοινωνικές – Δημοσιογραφία",
+        type: "omilos",
+        teacher: "Παπαδάκη Στυλιανή",
+        specialty: "ΠΕ78 - ΚΟΙΝΩΝΙΚΩΝ ΕΠΙΣΤΗΜΩΝ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Πέμπτη",
+        room: "Αίθουσα τεχνολογίας",
+        image: "images/factcheckers.jpg",
+        code: "—",
+        description: "Στον Όμιλο Δημοσιογραφικού Λόγου καλωσορίζουμε τα παιδιά σε ένα δημιουργικό ταξίδι στον κόσμο της ενημέρωσης, όπου η μάθηση γίνεται βιωματική εμπειρία. Σκοπός μας είναι να καθοδηγήσουμε τους μαθητές ώστε να αναπτύξουν την κριτική τους σκέψη, μαθαίνοντας να αξιολογούν την αξιοπιστία των ειδήσεων και να αναγνωρίζουν την παραπληροφόρηση στο ψηφιακό περιβάλλον.\n\nΜέσα από συνεργατικές δραστηριότητες, τα παιδιά κατανοούν τη διάκριση μεταξύ είδησης και γνώμης, εξοικειώνονται με τη δομή του δημοσιογραφικού λόγου (ρεπορτάζ, συνέντευξη, άρθρο) και καλλιεργούν ουσιαστικές δεξιότητες έρευνας, επικοινωνίας και γραπτής έκφρασης με τη δημιουργία της δικής τους σχολικής εφημερίδας. Παράλληλα, διαμορφώνουν μια υπεύθυνη στάση απέναντι στην πληροφορία, ενισχύοντας την ενεργό πολιτειότητα και την ενσυναίσθηση.\n\nΓια τη συμμετοχή δεν απαιτούνται ειδικές γνώσεις-μόνο περιέργεια, ενθουσιασμός και διάθεση για συνεργασία."
+      },
+      {
+        id: "omilos-synthesi",
+        title: "Εργαστήρι Μουσικής Σύνθεσης & Αυτοσχεδιασμού",
+        category: "Καλές Τέχνες - Μουσική",
+        type: "omilos",
+        teacher: "Παπαδάκης Ισίδωρος",
+        specialty: "ΠΕ79.01 - ΜΟΥΣΙΚΗΣ ΕΠΙΣΤΗΜΗΣ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. και Α΄/Β΄/Γ΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Αίθουσα μουσικής",
+        image: "images/synthesi.jpg",
+        code: "34B58",
+        description: "Το εργαστήρι απευθύνεται σε μαθητές που έχουν ήδη κάποια στοιχειώδη επαφή και σχετική εξοικείωση με κάποιο ή κάποια μουσικά όργανα. Ο παιδαγωγικός σκοπός του εργαστηρίου είναι να εξοπλίσει τους μαθητές με όλες τις δεξιότητες και την τεχνική γνώση ώστε να μπορέσουν να προσεγγίσουν τη μουσική τέχνη ώς δημιουργοί, είτε στο πλαίσιο της σύνθεσης είτε του αυτοσχεδιασμού."
+      },
+      {
+        id: "omilos-smart-safe",
+        title: "Smart School: Το Έξυπνο Ασφαλές Σχολείο μας",
+        category: "STEAM - Ρομποτική",
+        type: "omilos",
+        teacher: "Κατζαγιαννάκη Ειρήνη Ηλέκτρα",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Α΄/Β΄ Γυμν.",
+        day: "Πέμπτη",
+        room: "Εργ. Πληροφορικής",
+        image: "images/smart-safe.jpg",
+        code: "—",
+        description: "Στον όμιλο ρομποτικής «Smart School: Το Έξυπνο Ασφαλές Σχολείο μας», οι μαθητές και οι μαθήτριες γίνονται μικροί εφευρέτες, μηχανικοί, προγραμματιστές και δημιουργοί του σχολείου του μέλλοντος!\n\nΜε τη βοήθεια αισθητήρων και αυτοματισμών σχεδιάζουν και κατασκευάζουν έξυπνες εφαρμογές που μπορούν να κάνουν τη σχολική ζωή ασφαλέστερη. Δημιουργούν συστήματα ειδοποίησης, έξυπνες λύσεις για τον φωτισμό και πρωτότυπες κατασκευές που ανταποκρίνονται σε πραγματικές ανάγκες του σχολείου.\n\nΔεν ακολουθούν απλώς οδηγίες, αλλά σχεδιάζουν, προγραμματίζουν, δοκιμάζουν και διορθώνουν τις δικές τους ιδέες! Μέσα από πειραματισμό, ομαδική εργασία και δημιουργική επίλυση προβλημάτων, τα παιδιά αναπτύσσουν προγραμματιστικές δεξιότητες, την υπολογιστική και κριτική σκέψη, τη συνεργασία και την αυτοπεποίθησή τους. Δεν μαθαίνουν απλώς τεχνολογία. Αξιοποιούν την τεχνολογία για να δώσουν ζωή στις δικές τους ιδέες!\n\nΟ όμιλος είναι ένα δημιουργικό ταξίδι όπου η τεχνολογία, η ρομποτική και η φαντασία γίνονται εργαλεία για ένα σχολείο πιο ασφαλές και πιο έξυπνο!"
+      },
+      {
+        id: "omilos-python-microbit",
+        title: "Python, Physical Computing και Αυτοματισμοί με micro:bit",
+        category: "STEAM – Επιστήμη υπολογιστών",
+        type: "omilos",
+        teacher: "Κασωτάκη Σοφία",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Γ΄ Γυμν. και Α΄ Λυκ.",
+        day: "Πέμπτη",
+        room: "Εργ. Πληροφορικής Λυκείου",
+        image: "images/python-microbit.jpg",
+        code: "—",
+        description: "Ο Όμιλος «Python, Physical Computing και Αυτοματισμοί με micro:bit» προσφέρει στους μαθητές/τριες την ευκαιρία να γνωρίσουν τον κόσμο του προγραμματισμού και των σύγχρονων τεχνολογιών μέσα από δημιουργικές και βιωματικές δραστηριότητες. Ξεκινώντας από βασικές έννοιες και χωρίς να απαιτούνται προηγούμενες γνώσεις, οι συμμετέχοντες θα σχεδιάζουν και θα υλοποιούν έξυπνες ψηφιακές κατασκευές που αλληλεπιδρούν με το περιβάλλον τους και ανταποκρίνονται σε πραγματικές ανάγκες της καθημερινής ζωής. Μέσα από την ομαδική εργασία θα καλλιεργήσουν δεξιότητες δημιουργικής και υπολογιστικής σκέψης, επίλυσης προβλημάτων, συνεργασίας και επικοινωνίας, ενώ παράλληλα θα αναπτύξουν θετική στάση απέναντι στην τεχνολογία και την καινοτομία. Ο όμιλος απευθύνεται σε όλους τους μαθητές και όλες τις μαθήτριες, ενθαρρύνοντας τη συμμετοχή και την ισότιμη έκφραση όλων. Τα έργα των ομάδων θα παρουσιαστούν στην εκδήλωση διάχυσης των αποτελεσμάτων των Ομίλων της σχολικής μονάδας, η οποία θα πραγματοποιηθεί στο τέλος της σχολικής χρονιάς."
+      },
+
+      // === ΠΑΡΑΣΚΕΥΗ ===
+      {
+        id: "omilos-enisx-math-c",
+        title: "ΕΝΙΣΧΥΤΙΚΗ ΔΙΔΑΣΚΑΛΙΑ ΜΑΘΗΜΑΤΙΚΩΝ Γ΄ Γυμν.",
         category: "Ενισχυτική Διδασκαλία",
         type: "enischytiki",
-        teacher: "Χρυσάνθη Σεληνιωτάκη",
+        teacher: "Σεληνιωτάκη Χρυσάνθη",
         specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
-        grades: "Γ΄ Γυμνασίου",
+        grades: "Γ΄ Γυμν.",
         day: "Παρασκευή",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/enisx-math-c.jpg",
         code: "ΕΝΙΣΧ-09",
         description: "Στοχευμένη προετοιμασία και εμπέδωση της ύλης των Μαθηματικών της Γ΄ Γυμνασίου (ταυτότητες, παραγοντοποίηση, εξισώσεις 2ου βαθμού, τριγωνομετρία) για ασφαλές πέρασμα στο Λύκειο."
       },
       {
-        id: "enisx-10",
-        title: "Ενισχυτική Διδασκαλία Μαθηματικών Β΄ Γυμνασίου για την κάλυψη μαθησιακών κενών και την εμπέδωση βασικών γνώσεων",
+        id: "omilos-sea",
+        title: "SEA FOR THE FUTURE – Μικροί Επιστήμονες, Μεγάλα Μυστικά της Θάλασσας!",
+        category: "STEAM – Φυσικές Επιστήμες & Πειράματα",
+        type: "omilos",
+        teacher: "Φραγκιαδάκη Περσεφόνη",
+        specialty: "ΠΕ04.04 - ΒΙΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμν.",
+        day: "Παρασκευή",
+        room: "Εργ. Φυσικών Επιστημών",
+        image: "images/sea.jpg",
+        code: "—",
+        description: "Μπορούν οι μαθητές να γίνουν μικροί επιστήμονες και να συμβάλουν στην προστασία της θάλασσας;\n\nΣτον Όμιλο «SEA FOR THE FUTURE – Μικροί Επιστήμονες, Μεγάλα Μυστικά της Θάλασσας!», τα παιδιά της Α΄ Γυμνασίου ανακαλύπτουν τον θαλάσσιο κόσμο της Κρήτης και εξερευνούν πώς τα πλαστικά απορρίμματα επηρεάζουν τη θαλάσσια ζωή.\n\nΜέσα από συναρπαστικά πειράματα, ομαδικές αποστολές και έρευνα στην ακτή, θα έχουν την ευκαιρία να συλλέξουν δείγματα θαλασσινού νερού και να τα μελετήσουν στο σχολικό εργαστήριο, με τις απαραίτητες εγκρίσεις.\n\nΠαράλληλα, επιδιώκονται πειραματικές δραστηριότητες στο ΕΚΦΕ Ηρακλείου και συναντήσεις με επιστήμονες, ώστε να γνωρίσουν από κοντά τον κόσμο της έρευνας.\n\nΘα μάθουν να παρατηρούν, να συνεργάζονται, να σκέφτονται κριτικά και να παρουσιάζουν τις ανακαλύψεις τους, καλλιεργώντας δημιουργικότητα, αυτοπεποίθηση και σεβασμό προς το περιβάλλον. Τέλος, θα σχεδιάσουν δικές τους λύσεις για λιγότερα πλαστικά στο σχολείο."
+      },
+      {
+        id: "omilos-italiana",
+        title: "All'italiana: Όμιλος Ιταλικής Γλώσσας και Κουλτούρας",
+        category: "Ξένες Γλώσσες – Ξένες γλώσσες και πολιτισμός",
+        type: "omilos",
+        teacher: "Παπαχατζάκη Μαρία",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν. κ. Α΄ Λυκ.",
+        day: "Παρασκευή",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/italiana.jpg",
+        code: "—",
+        description: "Ο όμιλος All'italiana είναι μία πρώτη επαφή με την ιταλική γλώσσα (επίπεδα Α1-Α1+) και τον ιταλικό πολιτισμό και, έτσι, δεν προϋποθέτει κάποια προϋπάρχουσα γνώση της γλώσσας.\n\nΑρχικός στόχος μας είναι οι μαθητές/τριες μας να κατανοούν απλές οδηγίες, σύντομους διαλόγους και βασικά κείμενα· να συστήνονται, να δίνουν προσωπικές πληροφορίες, να περιγράφουν οικογένεια, σχολείο, καθημερινότητα, προτιμήσεις και τόπους· να συμμετέχουν σε σύντομες συναλλαγές· να γράφουν σύντομα μηνύματα και περιγραφές, να αναπτύξουν βασικό λεξιλόγιο και γραμματική.\n\nΟι πολιτισμικοί/παιδαγωγικοί στόχοι μας είναι η γνωριμία με τα ήθη και τα έθιμα της γειτονικής Ιταλίας, η ανάδειξη του γλωσσικού/διαλεκτικού της πλούτου, η σύνδεση-ιστορικά και γλωσσικά-με την Ελλάδα, η καλλιέργεια διαπολιτισμικής επίγνωσης, η ενίσχυση αυτοπεποίθησης, συνεργασίας και δημιουργικότητας. Προβλέπεται-βάσει αρχικού σχεδιασμού-η συνέχεια του ομίλου την επόμενη σχολική χρονιά με στόχο την προετοιμασία για τις εξετάσεις του Κρατικού Πιστοποιητικού Γλωσσομάθειας (επιπέδου Β1-Β2) ή άλλων πιστοποιήσεων."
+      },
+      {
+        id: "omilos-enisx-math-b",
+        title: "Ενισχυτική Διδασκαλία Μαθηματικών Β΄ Γυμν. για την κάλυψη μαθησιακών κενών και την εμπέδωση βασικών γνώσεων",
         category: "Ενισχυτική Διδασκαλία",
         type: "enischytiki",
-        teacher: "Γεωργία Τόλη",
+        teacher: "Τόλη Γεωργία",
         specialty: "ΠΕ03 - ΜΑΘΗΜΑΤΙΚΟΙ",
-        grades: "Β΄ Γυμνασίου",
+        grades: "Β΄ Γυμν.",
         day: "Παρασκευή",
-        room: "Αιθ. διδασκαλίας",
+        room: "Αιθ.διδασκαλίας",
         image: "images/enisx-math-b.jpg",
         code: "ΕΝΙΣΧ-10",
         description: "Κάλυψη μαθησιακών κενών και εμπέδωση της άλγεβρας και της γεωμετρίας της Β΄ Γυμνασίου, με έμφαση στη μεθοδική σκέψη και την εξάσκηση σε τυπικές ασκήσεις."
       },
       {
-        id: "enisx-11",
-        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα της Α΄ Γυμνασίου (Τμήμα Β)",
-        category: "Ενισχυτική Διδασκαλία",
-        type: "enischytiki",
-        teacher: "Κωνσταντίνος Σακελλάρης",
-        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
-        grades: "Α΄ Γυμνασίου",
+        id: "omilos-thriskeies",
+        title: "Ταξίδι στον κόσμο των Θρησκειών",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Χατζάκη Ευαγγελία",
+        specialty: "ΠΕ01 - ΘΕΟΛΟΓΟΙ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
         day: "Παρασκευή",
         room: "Αιθ. διδασκαλίας",
+        image: "images/thriskeies.jpg",
+        code: "F188B",
+        description: "Έχεις αναρωτηθεί ποτέ τι κοινό έχουν οι άνθρωποι σε διαφορετικές χώρες και τι κάνει κάθε πολιτισμό μοναδικό; Στον Όμιλο «Ένα ταξίδι στον κόσμο των θρησκειών» γινόμαστε εξερευνητές και ανακαλύπτουμε τον συναρπαστικό κόσμο των θρησκευτικών παραδόσεων! Ταξιδεύουμε από χώρα σε χώρα, γνωρίζουμε διαφορετικές θρησκείες, ανακαλύπτουμε σύμβολα, μυστήρια, γιορτές, έθιμα και εντυπωσιακούς χώρους λατρείας. Με οδηγό χάρτες, εικόνες, βίντεο, παιχνίδια γνώσεων και ομαδικές αποστολές, συγκεντρώνουμε στοιχεία και δημιουργούμε το δικό μας «Διαβατήριο των Θρησκειών». Παράλληλα, μαθαίνουμε να αναζητούμε πληροφορίες, να συνεργαζόμαστε, να εκφράζουμε τις απόψεις μας και να εξετάζουμε διαφορετικές οπτικές. Στόχος μας είναι να γνωρίσουμε καλύτερα τον κόσμο, να ανακαλύψουμε ομοιότητες και διαφορές και να κατανοήσουμε γιατί ο σεβασμός στη διαφορετικότητα είναι σημαντικός. Είσαι έτοιμος/η για μια περιπέτεια γνώσης χωρίς σύνορα;"
+      },
+      {
+        id: "omilos-enisx-glwssa-a2",
+        title: "Ενισχυτική Διδασκαλία στη Νεοελληνική Γλώσσα της Α' Γυμν.",
+        category: "Ενισχυτική Διδασκαλία",
+        type: "enischytiki",
+        teacher: "Σακελλάρης Κωνσταντίνος",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄ Γυμν.",
+        day: "Παρασκευή",
+        room: "Αιθ.διδασκαλίας",
         image: "images/enisx-glwssa-a2.jpg",
         code: "ΕΝΙΣΧ-11",
         description: "Παράλληλο τμήμα υποστήριξης στη Νεοελληνική Γλώσσα για την Α΄ Γυμνασίου, με στόχο τη βελτίωση της αναγνωστικής κατανόησης και της ορθογραφίας."
+      },
+      {
+        id: "omilos-ellada",
+        title: "Ελλάδα χωρίς Σύνορα: Αναζητώντας, ερευνώντας και αναδεικνύοντας τον Ελληνισμό στην Ευρώπη",
+        category: "Ανθρωπιστικές – Ιστορία",
+        type: "omilos",
+        teacher: "Ζήση Αντιγόνη",
+        specialty: "ΠΕ02 - ΦΙΛΟΛΟΓΟΙ",
+        grades: "Α΄/Β΄ Γυμν.",
+        day: "Παρασκευή",
+        room: "Αιθ.διδασκαλίας",
+        image: "images/ellada.jpg",
+        code: "B169F",
+        description: "Ο προτεινόμενος Όμιλος έχει ως αντικείμενο τη διερεύνηση της ιστορικής και σύγχρονης παρουσίας του ελληνισμού στον ευρωπαϊκό χώρο. Οι μαθητές/τριες θα αναλάβουν ενεργό ρόλο στη μαθησιακή διαδικασία και θα λειτουργήσουν ως μικρές ερευνητικές ομάδες, διερευνώντας ελληνικές κοινότητες, ιστορικά γεγονότα, γλωσσικά στοιχεία, μνημεία, πολιτιστικές πρακτικές και σύγχρονες εκφράσεις της ελληνικής παρουσίας στην Ευρώπη. Ιδιαίτερη έμφαση θα δοθεί στην αξιοποίηση πρωτογενών και δευτερογενών πηγών, στη διεξαγωγή συνεντεύξεων και στην επιτόπια έρευνα. Η δράση δύναται να κορυφωθεί με εκπαιδευτική μετακίνηση σε ευρωπαϊκό προορισμό, ο οποίος θα συνδέεται άμεσα με τη θεματική και τα ερευνητικά ερωτήματα του Ομίλου. Η μετακίνηση θα αποτελεί οργανικό μέρος του εκπαιδευτικού σχεδιασμού και θα προηγείται και θα ακολουθείται από συγκεκριμένες μαθητικές ερευνητικές δραστηριότητες. Στο πλαίσιο της εξωστρέφειας του Ομίλου προβλέπεται η δυνατότητα διαθεματικής συνεργασίας με τον Όμιλο Ιταλικών."
+      },
+      {
+        id: "omilos-athlitismos",
+        title: "«Αθλητισμός, Υγεία και Ηγεσία»",
+        category: "Κοινωνικές – Αθλητισμός",
+        type: "omilos",
+        teacher: "Νεονάκης Γεώργιος",
+        specialty: "ΠΕ11 - ΦΥΣΙΚΗΣ ΑΓΩΓΗΣ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Παρασκευή",
+        room: "Προαύλιος χώρος",
+        image: "images/athlitismos.jpg",
+        code: "D8A6F",
+        description: "Ο όμιλος συνδυάζει τον αθλητισμό με την επιστήμη, την υγεία, την ηγεσία και την κοινωνική προσφορά. Σκοπός είναι οι μαθητές να κατανοήσουν ότι ο αθλητισμός δεν είναι μόνο η επίδοση, αλλά τρόπος ζωής, συνεργασίας, επιστημονικής σκέψης και κοινωνικής ευθύνης."
+      },
+      {
+        id: "omilos-tainia",
+        title: "ΔΗΜΙΟΥΡΓΩ ΤΗΝ ΔΙΚΗ ΜΟΥ ΤΑΙΝΙΑ ΜΙΚΡΟΥ ΜΗΚΟΥΣ",
+        category: "Καλές Τέχνες - Κινηματογράφος-Φωτογραφία",
+        type: "omilos",
+        teacher: "Χιωτίδης Θεόδωρος",
+        specialty: "ΠΕ08 - ΚΑΛΛΙΤΕΧΝΙΚΩΝ",
+        grades: "Α΄/Β΄/Γ΄ Γυμν.",
+        day: "Παρασκευή",
+        room: "Εργ. Πληροφορικής",
+        image: "images/tainia.jpg",
+        code: "1A49F",
+        description: "Ο όμιλος «Δημιουργώ τη δική μου ταινία μικρού μήκους» δίνει στους μαθητές και τις μαθήτριες την ευκαιρία να γνωρίσουν τον κόσμο του κινηματογράφου και να δημιουργήσουν τη δική τους μικρή ταινία, από την αρχική ιδέα έως την τελική παρουσίαση.\n\nΜέσα από ομαδικές και δημιουργικές δραστηριότητες, οι μαθητές θα μάθουν πώς γεννιέται μια ιστορία, πώς οργανώνεται μια ταινία και πώς μπορούν να εκφράσουν ιδέες και συναισθήματα μέσα από εικόνα, ήχο και κίνηση.\n\nΠαράλληλα, θα καλλιεργήσουν τη φαντασία, τη δημιουργικότητα και την παρατηρητικότητά τους, θα αναπτύξουν δεξιότητες συνεργασίας, επικοινωνίας και ανάληψης ευθύνης και θα εξοικειωθούν με τη χρήση απλών ψηφιακών εργαλείων.\n\nΣτόχος είναι να αποκτήσουν αυτοπεποίθηση στην έκφρασή τους και να βιώσουν τη χαρά της δημιουργίας ενός κοινού έργου."
+      },
+      {
+        id: "omilos-digital-citizens",
+        title: "Digital Citizens: Υπολογιστική Σκέψη, Ψηφιακές Δεξιότητες και Τεχνητή Νοημοσύνη με βάση το DigComp 3.0",
+        category: "STEAM – Επιστήμη Υπολογιστών & AI",
+        type: "omilos",
+        teacher: "Κασωτάκη Σοφία",
+        specialty: "ΠΕ86 - ΠΛΗΡΟΦΟΡΙΚΗΣ",
+        grades: "Γ΄ Γυμν. και Α΄ Λυκ.",
+        day: "Παρασκευή",
+        room: "Εργ. Πληροφορικής Λυκείου",
+        image: "images/digital-citizens.jpg",
+        code: "D6337",
+        description: "Καλλιέργεια υπολογιστικής σκέψης, εξοικείωση με βασικές αρχές Τεχνητής Νοημοσύνης (AI) και ενίσχυση των ψηφιακών δεξιοτήτων των μαθητών με βάση το ευρωπαϊκό πλαίσιο DigComp 3.0."
       }
     ];
 
     let filteredClubs = [...clubsData];
     let activeScheduleGrade = 'all';
+    let currentModalImageUrl = '';
 
     function renderCards() {
       const grid = document.getElementById('cards-grid');
@@ -965,7 +1018,7 @@
           imageHTML = `
             <div class="card-img-wrap" onclick="openDetails('${club.id}')">
               <img src="${club.image}" alt="${club.title}" class="card-img" onerror="this.parentElement.style.display='none'">
-              <span class="img-tag"><i data-lucide="image" style="width:12px; height:12px;"></i> Προβολή αφίσας</span>
+              <span class="img-tag"><i data-lucide="image" style="width:12px; height:12px;"></i> Προβολή αφίσας & ζουμ</span>
             </div>`;
         }
 
@@ -1032,8 +1085,13 @@
       Object.values(days).forEach(el => el.innerHTML = '');
 
       clubsData.forEach(club => {
-        if (activeScheduleGrade !== 'all' && !club.grades.includes(activeScheduleGrade)) {
-          return;
+        // Grade matching logic: Α΄, Β΄, Γ΄, ή Λυκ
+        if (activeScheduleGrade !== 'all') {
+          if (activeScheduleGrade === 'Λυκ') {
+            if (!club.grades.includes('Λυκ')) return;
+          } else {
+            if (!club.grades.includes(activeScheduleGrade)) return;
+          }
         }
 
         const dayList = club.day.includes('&') ? club.day.split('&').map(d => d.trim()) : [club.day];
@@ -1050,7 +1108,7 @@
                 <span class="sched-item-badge ${isEnisx ? 'badge-enisx' : 'badge-omilos'}">
                   ${isEnisx ? 'Ενισχυτική' : 'Όμιλος'}
                 </span>
-                <span style="font-size:9.5px; font-weight:700; color:#64748b;">${club.grades.split(',')[0]}</span>
+                <span style="font-size:9.5px; font-weight:700; color:#64748b;">${club.grades}</span>
               </div>
               <div class="sched-item-title">${club.title}</div>
               <div class="sched-item-teacher">${club.teacher}</div>
@@ -1099,7 +1157,12 @@
           (item.code && item.code.toLowerCase().includes(search));
 
         const matchesType = (type === 'all') || (item.type === type);
-        const matchesGrade = (grade === 'all') || item.grades.includes(grade);
+        
+        let matchesGrade = true;
+        if (grade !== 'all') {
+          matchesGrade = (grade === 'Λυκ') ? item.grades.includes('Λυκ') : item.grades.includes(grade);
+        }
+
         const matchesDay = (day === 'all') || item.day.includes(day);
 
         return matchesSearch && matchesType && matchesGrade && matchesDay;
@@ -1116,6 +1179,7 @@
       applyFilters();
     }
 
+    // Modal Operations
     function openDetails(id) {
       const club = clubsData.find(c => c.id === id);
       if (!club) return;
@@ -1139,11 +1203,19 @@
 
       const imgContainer = document.getElementById('modal-image-container');
       const img = document.getElementById('modal-image');
+      const clickContainer = document.getElementById('poster-click-container');
+      const newTabBtn = document.getElementById('poster-newtab-btn');
+
+      clickContainer.classList.remove('zoomed');
+
       if (club.image) {
+        currentModalImageUrl = club.image;
         img.src = club.image;
+        newTabBtn.href = club.image;
         imgContainer.classList.remove('hidden');
         img.onerror = () => { imgContainer.classList.add('hidden'); };
       } else {
+        currentModalImageUrl = '';
         imgContainer.classList.add('hidden');
       }
 
@@ -1155,6 +1227,27 @@
     function closeModal() {
       document.getElementById('details-modal').style.display = 'none';
       document.body.style.overflow = '';
+      document.getElementById('poster-click-container').classList.remove('zoomed');
+    }
+
+    // Zoom and Lightbox functions
+    function toggleModalZoom() {
+      const container = document.getElementById('poster-click-container');
+      container.classList.toggle('zoomed');
+    }
+
+    document.getElementById('poster-click-container').addEventListener('click', toggleModalZoom);
+
+    function openLightbox() {
+      if (!currentModalImageUrl) return;
+      const lb = document.getElementById('lightbox-modal');
+      const lbImg = document.getElementById('lightbox-image');
+      lbImg.src = currentModalImageUrl;
+      lb.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').style.display = 'none';
     }
 
     function switchView(view) {
@@ -1177,18 +1270,24 @@
       }
     }
 
+    // Event Listeners
     document.getElementById('search-input').addEventListener('input', applyFilters);
     document.getElementById('filter-type').addEventListener('change', applyFilters);
     document.getElementById('filter-grade').addEventListener('change', applyFilters);
     document.getElementById('filter-day').addEventListener('change', applyFilters);
 
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeModal();
+      }
     });
+
     document.getElementById('details-modal').addEventListener('click', (e) => {
       if (e.target.id === 'details-modal') closeModal();
     });
 
+    // Initialize
     applyFilters();
     renderSchedule();
     if (window.lucide) lucide.createIcons();
